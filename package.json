@@ -17,5 +17,8 @@
         "ejs": "^2.5.2",
         "morgan": "^1.7.0",
         "serve-favicon": "^2.3.0"
+    },
+    "devDependencies": {
+        "hotnode": "0.0.8"
     }
 }
