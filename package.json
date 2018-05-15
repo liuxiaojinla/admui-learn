@@ -1,0 +1,21 @@
+{
+    "name": "Admui",
+    "version": "1.2.0",
+    "description": "Admui通用管理系统快速开发框架（Admui）是一个基于最新Web技术的企业级通用管理系统快速开发框架，可以帮助企业极大的提高工作效率，节省开发成本，提升品牌形象。您可以 Admui为基础，快速开发各种MIS系统，如CMS、OA、CRM、ERP、POS等。Admui紧贴业务特性，涵盖了大量的常用组件和基础功能，最大程度上帮助企业节省时间成本和费用开支。",
+    "scripts": {
+        "start": "hotnode server/bin/www"
+    },
+    "homepage": "http://www.admui.com/",
+    "author": "Admui Team",
+    "license": "Admui License 1.0 (http://www.admui.com/about/#license)",
+    "bugs": "http://www.admui.com/user/feedback",
+    "dependencies": {
+        "body-parser": "^1.15.1",
+        "cookie-parser": "^1.4.3",
+        "debug": "^2.2.0",
+        "express": "^4.13.4",
+        "ejs": "^2.5.2",
+        "morgan": "^1.7.0",
+        "serve-favicon": "^2.3.0"
+    }
+}
