@@ -1,0 +1,139 @@
+<title>评分</title>
+
+<link rel="stylesheet" href="/css/examples/components/advanced/rating.css">
+
+<div class="page animation-fade">
+    <div class="page-header">
+        <h1 class="page-title">Raty</h1>
+        <div class="page-header-actions">
+            <a class="btn btn-inverse btn-round" href="https://github.com/wbotelhos/raty" target="_blank">
+                <i class="icon wb-link" aria-hidden="true"></i> <span class="hidden-xs">官网</span></a>
+        </div>
+    </div>
+    <div class="page-content">
+
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">评分</h3>
+            </div>
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <div class="col-sm-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">默认</h4>
+                            <div class="example">
+                                <div class="rating" data-plugin="rating"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">尺寸</h4>
+                            <p>可以使用 <code>.rating-sm</code> 或 <code>.rating-lg</code> 类改变组件大小。</p>
+                            <div class="example">
+                                <div class="margin-bottom-10">
+                                    <div class="rating rating-sm" data-score="4" data-plugin="rating"></div>
+                                </div>
+                                <div class="margin-bottom-10">
+                                    <div class="rating" data-score="4" data-plugin="rating"></div>
+                                </div>
+                                <div>
+                                    <div class="rating rating-lg" data-score="4" data-plugin="rating"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">评分</h4>
+                            <div class="example">
+                                <div class="rating" data-score="3" data-plugin="rating"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">数字</h4>
+                            <div class="example">
+                                <div class="rating" data-number="10" data-plugin="rating"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">只读</h4>
+                            <div class="example">
+                                <div class="rating" data-score="4" data-number="5" data-read-only="true" data-plugin="rating"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">半星</h4>
+                            <div class="example">
+                                <div class="rating" data-score="3.5" data-half="true" data-plugin="rating"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">自定义图标</h4>
+                            <div class="example">
+                                <div class="rating" data-score="4" data-star-off="icon wb-heart-outline" data-star-on="icon wb-heart red-600" data-plugin="rating"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">取消</h4>
+                            <div class="example">
+                                <div class="rating" data-plugin="rating" data-cancel="true"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="example-wrap margin-sm-0">
+                            <h4 class="example-title">提示</h4>
+                            <div class="example">
+                                <div class="rating" data-plugin="rating" data-cancel="true" data-target="#exampleHintTarget" data-hints="糟糕,凑合,一般,好,优秀"></div>
+                                <div class="rating-hint" id="exampleHintTarget"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">百分比</h4>
+                            <div class="example">
+                                <div class="rating" data-plugin="rating" data-cancel="true" data-target="#exampleHintPercentage" data-number="10" data-hints="10%,20%,30%,40%,50%,60%,70%,80%,90%,100%"></div>
+                                <div class="rating-hint" id="exampleHintPercentage"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="/vendor/raty/jquery.raty.min.js"></script>

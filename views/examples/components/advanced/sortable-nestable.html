@@ -1,0 +1,476 @@
+<title>拖动排序</title>
+
+<link rel="stylesheet" href="/vendor/nestable/nestable.css">
+<link rel="stylesheet" href="/vendor/html5sortable/sortable.css">
+<link rel="stylesheet" href="/vendor/tasklist/tasklist.css">
+
+<div class="page animation-fade">
+    <div class="page-header">
+        <h1 class="page-title">Sortable &amp; Nestable</h1>
+        <div class="page-header-actions">
+            <button type="button" class="btn btn-icon btn-inverse btn-round">
+                <i class="icon wb-pencil" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btn btn-icon btn-inverse btn-round">
+                <i class="icon wb-refresh" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="btn btn-icon btn-inverse btn-round">
+                <i class="icon wb-settings" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    <div class="page-content">
+
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Sortable
+                    <small>
+                        <a class="example-plugin-link" href="https://github.com/voidberg/html5sortable" target="_blank">
+                            官网
+                        </a>
+                    </small>
+                </h3>
+            </div>
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <div class="col-md-6">
+
+                        <div class="example-wrap margin-lg-0">
+                            <h4 class="example-title">排序</h4>
+                            <p>可以拖动列表项进行排序。</p>
+                            <ul class="list-group sortable list-group-full" data-plugin="sortable">
+                                <li class="list-group-item">
+                                    <span class="badge badge-success">6</span>
+                                    <i class="icon wb-inbox" aria-hidden="true"></i> 收件箱
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge badge-info">2</span>
+                                    <i class="icon wb-user" aria-hidden="true"></i> 简介
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="icon wb-bell" aria-hidden="true"></i> 通知
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge badge-info">10</span>
+                                    <i class="icon wb-info-circle" aria-hidden="true"></i> 信息
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="icon wb-calendar" aria-hidden="true"></i> 行程
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">手柄拖动</h4>
+                            <p>拖动左侧的图标进行排序。</p>
+                            <ul class="list-group list-group-gap sortable-with-handle list-group-full" data-plugin="sortable" data-handle="i">
+                                <li class="list-group-item">
+                                    <i class="icon wb-list sortable-handle" aria-hidden="true"></i> CSS3 选择器
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="icon wb-list sortable-handle" aria-hidden="true"></i> CSS3 边框
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="icon wb-list sortable-handle" aria-hidden="true"></i> CSS3 背景
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="icon wb-list sortable-handle" aria-hidden="true"></i> CSS3 文本
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="icon wb-list sortable-handle" aria-hidden="true"></i> CSS3 进阶
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="clearfix visible-md-block"></div>
+                    <div class="col-md-6">
+
+                        <div class="example-wrap margin-md-0">
+                            <h4 class="example-title">待办事项</h4>
+                            <ul class="list-task list-group sortable" data-role="tasklist" data-plugin="sortable">
+                                <li class="list-group-item task-done" data-role="task">
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="inputSchedule" name="inputCheckboxesSchedule" checked>
+                                        <label for="inputSchedule"><i class="icon wb-calendar" aria-hidden="true"></i>
+                                            <span>接见菲律宾总统</span></label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item" data-role="task">
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="inputCall" name="inputCheckboxesCall">
+                                        <label for="inputCall"><i class="icon wb-bell" aria-hidden="true"></i> <span>给妈妈打电话</span>
+                                            <span class="label label-danger">今天</span></label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item" data-role="task">
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="inputBook" name="inputCheckboxesBook">
+                                        <label for="inputBook"><i class="icon wb-calendar" aria-hidden="true"></i>
+                                            <span>与总理探讨xyz等若干问题</span></label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item" data-role="task">
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="inputForward" name="inputCheckboxesForward">
+                                        <label for="inputForward"><span>好好睡一觉</span> <span class="label label-primary">18小时</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item" data-role="task">
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="inputRecieve" name="inputCheckboxesRecieve">
+                                        <label for="inputRecieve"><span>起床</span></label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">编辑列表项</h4>
+                            <ul class="list-group list-group-gap sortable" data-plugin="sortable">
+                                <li class="list-group-item list-group-item-warning">
+                                    <span class="pull-right">
+                                        <a href="javascript:;">
+                                            <i class="icon wb-pencil white" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <i class="icon wb-plus white" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <i class="icon wb-close white" aria-hidden="true"></i>
+                                        </a>
+                                    </span> <span class="pull-left">
+                                        <i class="icon wb-sort-vertical" aria-hidden="true"></i>
+                                    </span> 第一项
+                                </li>
+                                <li class="list-group-item list-group-item-success">
+                                    <span class="pull-right">
+                                        <a href="javascript:;">
+                                            <i class="icon wb-pencil white" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <i class="icon wb-plus white" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <i class="icon wb-close white" aria-hidden="true"></i>
+                                        </a>
+                                    </span> <span class="pull-left">
+                                        <i class="icon wb-sort-vertical" aria-hidden="true"></i>
+                                    </span> 第二项
+                                </li>
+                                <li class="list-group-item list-group-item-danger">
+                                    <span class="pull-right">
+                                        <a href="javascript:;">
+                                            <i class="icon wb-pencil white" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <i class="icon wb-plus white" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <i class="icon wb-close white" aria-hidden="true"></i>
+                                        </a>
+                                    </span> <span class="pull-left">
+                                        <i class="icon wb-sort-vertical" aria-hidden="true"></i>
+                                    </span> 第三项
+                                </li>
+                                <li class="list-group-item list-group-item-info">
+                                    <span class="pull-right">
+                                        <a href="javascript:;">
+                                            <i class="icon wb-pencil white" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <i class="icon wb-plus white" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <i class="icon wb-close white" aria-hidden="true"></i>
+                                        </a>
+                                    </span> <span class="pull-left">
+                                        <i class="icon wb-sort-vertical" aria-hidden="true"></i>
+                                    </span> 第四项
+                                </li>
+                                <li class="list-group-item list-group-item-dark">
+                                    <span class="pull-right">
+                                        <a href="javascript:;">
+                                            <i class="icon wb-pencil white" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <i class="icon wb-plus white" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="javascript:;">
+                                            <i class="icon wb-close white" aria-hidden="true"></i>
+                                        </a>
+                                    </span> <span class="pull-left">
+                                        <i class="icon wb-sort-vertical" aria-hidden="true"></i>
+                                    </span> 第五项
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Nestable
+                    <small>
+                        <a class="example-plugin-link" href="https://github.com/RamonSmit/Nestable" target="_blank">官网
+                        </a>
+                    </small>
+                </h3>
+            </div>
+            <div class="panel-body container-fluid">
+                <div class="row row-lg">
+                    <div class="col-md-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">基本</h4>
+                            <div class="example">
+                                <div class="dd" data-plugin="nestable">
+                                    <ol class="dd-list">
+                                        <li class="dd-item" data-id="1">
+                                            <div class="dd-handle">列表项 1 <span class="pull-right text-info">进行中</span>
+                                            </div>
+                                        </li>
+                                        <li class="dd-item" data-id="2">
+                                            <div class="dd-handle">列表项 2
+                                                <span class="pull-right text-success">已批准</span>
+                                            </div>
+                                        </li>
+                                        <li class="dd-item" data-id="3">
+                                            <div class="dd-handle">列表项 3
+                                                <span class="pull-right text-warning">待处理</span>
+                                            </div>
+                                            <ol class="dd-list">
+                                                <li class="dd-item" data-id="4">
+                                                    <div class="dd-handle">列表项 4</div>
+                                                </li>
+                                                <li class="dd-item" data-id="5" data-foo="bar">
+                                                    <div class="dd-handle">列表项 5</div>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                        <li class="dd-item" data-id="6">
+                                            <div class="dd-handle">列表项 6</div>
+                                            <ol class="dd-list">
+                                                <li class="dd-item" data-id="7">
+                                                    <div class="dd-handle">列表项 7</div>
+                                                    <ol class="dd-list">
+                                                        <li class="dd-item" data-id="8">
+                                                            <div class="dd-handle">列表项 8</div>
+                                                        </li>
+                                                    </ol>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">手柄拖动</h4>
+                            <div class="example">
+                                <div class="dd" data-plugin="nestable">
+                                    <ol class="dd-list">
+                                        <li class="dd-item dd-item-alt" data-id="1">
+                                            <div class="dd-handle"></div>
+                                            <div class="dd-content">列表项 1 <span class="pull-right wb-wrench"></span>
+                                            </div>
+                                        </li>
+                                        <li class="dd-item dd-item-alt" data-id="2">
+                                            <div class="dd-handle"></div>
+                                            <div class="dd-content">列表项 2 <span class="pull-right wb-settings"></span>
+                                            </div>
+                                        </li>
+                                        <li class="dd-item dd-item-alt" data-id="3">
+                                            <div class="dd-handle"></div>
+                                            <div class="dd-content">列表项 3</div>
+                                            <ol class="dd-list">
+                                                <li class="dd-item dd-item-alt" data-id="4">
+                                                    <div class="dd-handle"></div>
+                                                    <div class="dd-content">列表项 4</div>
+                                                </li>
+                                                <li class="dd-item dd-item-alt" data-id="5" data-foo="bar">
+                                                    <div class="dd-handle"></div>
+                                                    <div class="dd-content">列表项 5</div>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                        <li class="dd-item dd-item-alt" data-id="6">
+                                            <div class="dd-handle"></div>
+                                            <div class="dd-content">列表项 6</div>
+                                            <ol class="dd-list">
+                                                <li class="dd-item dd-item-alt" data-id="7">
+                                                    <div class="dd-handle"></div>
+                                                    <div class="dd-content">列表项 7</div>
+                                                    <ol class="dd-list">
+                                                        <li class="dd-item dd-item-alt" data-id="8">
+                                                            <div class="dd-handle"></div>
+                                                            <div class="dd-content">列表项 8</div>
+                                                        </li>
+                                                    </ol>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="clearfix visible-lg-block visible-md-block"></div>
+                    <div class="col-md-6">
+
+                        <div class="example-wrap margin-md-0">
+                            <h4 class="example-title">连接</h4>
+                            <p>列表项可在两个列表之间拖动。</p>
+                            <div class="example">
+                                <div class="dd" data-plugin="nestable">
+                                    <h5>第 1 个列表</h5>
+                                    <ol class="dd-list">
+                                        <li class="dd-item" data-id="1">
+                                            <div class="dd-handle">列表项 1</div>
+                                        </li>
+                                        <li class="dd-item" data-id="2">
+                                            <div class="dd-handle">列表项 2</div>
+                                        </li>
+                                        <li class="dd-item" data-id="3">
+                                            <div class="dd-handle">列表项 3</div>
+                                            <ol class="dd-list">
+                                                <li class="dd-item" data-id="4">
+                                                    <div class="dd-handle">列表项 4</div>
+                                                </li>
+                                                <li class="dd-item" data-id="5" data-foo="bar">
+                                                    <div class="dd-handle">列表项 5</div>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                    <h5>第 2 个列表</h5>
+                                    <ol class="dd-list">
+                                        <li class="dd-item" data-id="6">
+                                            <div class="dd-handle">列表项 6</div>
+                                        </li>
+                                        <li class="dd-item" data-id="7">
+                                            <div class="dd-handle">列表项 7</div>
+                                        </li>
+                                        <li class="dd-item" data-id="8">
+                                            <div class="dd-handle">列表项 8</div>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="example-wrap">
+                            <h4 class="example-title">媒体</h4>
+                            <div class="example">
+                                <div class="dd" data-plugin="nestable">
+                                    <ol class="dd-list">
+                                        <li class="dd-item" data-id="1">
+                                            <div class="dd-handle">列表项 1</div>
+                                            <div class="dd-content">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a class="avatar" href="javascript:;">
+                                                            <img class="img-responsive" src="/images/portraits/3.jpg" alt="...">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">♫茉莉花</h4>
+                                                        <small>CTO</small>
+                                                    </div>
+                                                    <div class="media-right">
+                                                        <span class="status status-lg status-off"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dd-item" data-id="2">
+                                            <div class="dd-handle">列表项 2</div>
+                                            <div class="dd-content">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a class="avatar" href="javascript:;">
+                                                            <img class="img-responsive" src="/images/portraits/4.jpg" alt="...">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">璇子</h4>
+                                                        <small>CVO</small>
+                                                    </div>
+                                                    <div class="media-right">
+                                                        <span class="status status-lg status-away"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <ol class="dd-list">
+                                                <li class="dd-item" data-id="3">
+                                                    <div class="dd-handle">列表项 3</div>
+                                                    <div class="dd-content">
+                                                        <div class="media">
+                                                            <div class="media-left">
+                                                                <a class="avatar" href="javascript:;">
+                                                                    <img class="img-responsive" src="/images/portraits/2.jpg" alt="...">
+                                                                </a>
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <h4 class="media-heading">hanwen</h4>
+                                                                <small>CIO</small>
+                                                            </div>
+                                                            <div class="media-right">
+                                                                <span class="status status-lg status-busy"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                        <li class="dd-item" data-id="4">
+                                            <div class="dd-handle">列表项 4</div>
+                                            <div class="dd-content">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a class="avatar avatar-online" href="javascript:;">
+                                                            <img class="img-responsive" src="/images/portraits/4.jpg" alt="...">
+                                                            <i></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">李志文</h4>
+                                                        <small>CVO</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="/vendor/html5sortable/html.sortable.min.js"></script>
+<script src="/vendor/nestable/jquery.nestable.min.js"></script>

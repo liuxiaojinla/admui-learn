@@ -1,0 +1,336 @@
+<title>表单向导</title>
+
+<link rel="stylesheet" href="/vendor/jquery-wizard/jquery-wizard.css">
+<link rel="stylesheet" href="/vendor/formvalidation/formValidation.css">
+
+<div class="page animation-fade page-forms">
+    <div class="page-header">
+        <h1 class="page-title">表单向导</h1>
+        <ol class="breadcrumb">
+            <li>
+                <a>首页</a>
+            </li>
+            <li>
+                <a href="javascript:;">表单</a>
+            </li>
+            <li class="active">表单向导</li>
+        </ol>
+        <div class="page-header-actions">
+            <a class="btn btn-default btn-outline btn-round" href="https://github.com/amazingSurge/jquery-wizard" target="_blank">
+                <i class="icon wb-link" aria-hidden="true"></i> <span class="hidden-xs">官网</span></a>
+        </div>
+    </div>
+    <div class="page-content container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="panel" id="exampleWizardForm">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">普通</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="steps steps-sm row" data-plugin="matchHeight" data-by-row="true" role="tablist">
+                            <div class="step col-md-4 current" data-target="#exampleAccount" role="tab">
+                                <span class="step-number">1</span>
+                                <div class="step-desc">
+                                    <span class="step-title">账户</span>
+                                    <p>请登录您的账户</p>
+                                </div>
+                            </div>
+                            <div class="step col-md-4" data-target="#exampleBilling" role="tab">
+                                <span class="step-number">2</span>
+                                <div class="step-desc">
+                                    <span class="step-title">订单</span>
+                                    <p>完成订单支付</p>
+                                </div>
+                            </div>
+                            <div class="step col-md-4" data-target="#exampleGetting" role="tab">
+                                <span class="step-number">3</span>
+                                <div class="step-desc">
+                                    <span class="step-title">完成</span>
+                                    <p>等待发货</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="wizard-content">
+                            <div class="wizard-pane active" id="exampleAccount" role="tabpanel">
+                                <form id="exampleAccountForm">
+                                    <div class="form-group">
+                                        <label class="control-label" for="inputUserName">用户名</label>
+                                        <input type="text" class="form-control" id="inputUserName" name="username" required="required">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="inputPassword">密码</label>
+                                        <input type="password" class="form-control" id="inputPassword" name="password" required="required">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="wizard-pane" id="exampleBilling" role="tabpanel">
+                                <form id="exampleBillingForm">
+                                    <div class="form-group">
+                                        <label class="control-label" for="inputCardNumber">信用卡</label>
+                                        <input type="text" class="form-control" id="inputCardNumber" name="number" placeholder="卡号">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="inputCVV">CVV码</label>
+                                        <input type="text" class="form-control" id="inputCVV" name="cvv" placeholder="CVV码">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="wizard-pane" id="exampleGetting" role="tabpanel">
+                                <div class="text-center margin-vertical-20">
+                                    <i class="icon wb-check font-size-40" aria-hidden="true"></i>
+                                    <h4>我们已经收到您的订单，稍后会为您安排发货</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+
+                <div class="panel" id="exampleWizardFormContainer">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">链式效果</h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="pearls row">
+                            <div class="pearl current col-xs-4">
+                                <div class="pearl-icon"><i class="icon wb-user" aria-hidden="true"></i></div>
+                                <span class="pearl-title">账户信息</span>
+                            </div>
+                            <div class="pearl col-xs-4">
+                                <div class="pearl-icon"><i class="icon wb-payment" aria-hidden="true"></i></div>
+                                <span class="pearl-title">订单信息</span>
+                            </div>
+                            <div class="pearl col-xs-4">
+                                <div class="pearl-icon"><i class="icon wb-check" aria-hidden="true"></i></div>
+                                <span class="pearl-title">完成</span>
+                            </div>
+                        </div>
+
+
+                        <form class="wizard-content" id="exampleFormContainer">
+                            <div class="wizard-pane active" role="tabpanel">
+                                <div class="form-group">
+                                    <label class="control-label" for="inputUserNameOne">用户名</label>
+                                    <input type="text" class="form-control" id="inputUserNameOne" name="username" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="inputPasswordOne">密码</label>
+                                    <input type="password" class="form-control" id="inputPasswordOne" name="password" required="required">
+                                </div>
+                            </div>
+                            <div class="wizard-pane" id="exampleBillingOne" role="tabpanel">
+                                <div class="form-group">
+                                    <label class="control-label" for="inputCardNumberOne">信用卡</label>
+                                    <input type="text" class="form-control" id="inputCardNumberOne" name="number" placeholder="卡号">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="inputCVVOne">CVV码</label>
+                                    <input type="text" class="form-control" id="inputCVVOne" name="cvv" placeholder="CVV码">
+                                </div>
+                            </div>
+                            <div class="wizard-pane" id="exampleGettingOne" role="tabpanel">
+                                <div class="text-center margin-vertical-20">
+                                    <h4>请确认您的订单</h4>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover text-right">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center">序号</th>
+                                                <th>产品</th>
+                                                <th class="text-right">重量</th>
+                                                <th class="text-right">运费</th>
+                                                <th class="text-right">总计</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td class="text-center">1</td>
+                                                <td class="text-left">三星Note炸弹</td>
+                                                <td>32</td>
+                                                <td>&yen;75</td>
+                                                <td>&yen;2152</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">2</td>
+                                                <td class="text-left">U盘</td>
+                                                <td>15</td>
+                                                <td>&yen;169</td>
+                                                <td>&yen;4169</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">3</td>
+                                                <td class="text-left">2T移动硬盘</td>
+                                                <td>69</td>
+                                                <td>&yen;49</td>
+                                                <td>&yen;1260</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="panel" id="exampleWizardPager">
+                    <div class="panel-heading">
+                        <div class="panel-actions"></div>
+                        <h3 class="panel-title">分页</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="wizard-content">
+                            <div class="wizard-pane active" role="tabpanel">
+                                近日沃尔沃宣布将联合瑞典汽车安全公司奥托立夫(AUTOLIV)成立一个独立子公司，该公司将专攻瞄准未来车型自动驾驶技
+                                术相关的研发。奥托立夫公司(AUTOLIV)是在瑞典设立的一家国际跨国公司，公司多年来研发汽车电子安全系统、电子控制单元，汽车方向盘系统以及夜视
+                                和雷达传感系统，新的合作能够让新公司吸取Autoliv多年来在汽车驾驶安全配件制造方面的经验，研发未来用于沃尔沃或其它厂商的无人驾驶软件系统。
+                            </div>
+                            <div class="wizard-pane" role="tabpanel">
+                                在试运营期间，Jio将向全印度人免费提供服务，直到今年年底。在免费期过后，其数据流量月资费也低至每月149卢比（约合15元人民币）。安巴尼上周在公司年度全体大会上对投资者说：“任何、所有能实现数字化的东西都将快速走向数字化，生活将走向数字化。”目前，只有五分之一的印度成年人口能够上网。在印度，公共WiFi热点极少。城市贫困区缺乏高速宽带所需的基础设备，更不用说乡村地区了。
+                            </div>
+                            <div class="wizard-pane" role="tabpanel">
+                                车轮查违章与百度地图推出《中国车主违章地图大数据》报告，江苏高居“违章停车”榜首，在全国范围内，江苏、湖北、山东、浙江以及北京五个省市中的车主违章比例最高，其中江苏省以高达11.52%的比例遥遥领先。另外，江苏、湖北、山东三省的“马路杀手”已经超过了全国人口最多的广东省。有62.38%是不按规定行驶，26.18%超速、7.13%违章停车、2.82%无视尾号限行、1.49%不系安全带和不带头盔。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+
+                <div class="panel" id="exampleWizardProgressbar">
+                    <div class="panel-heading">
+                        <div class="panel-actions">
+                            <div class="progress progress-xs">
+                                <div class="progress-bar active" style="width: 33.3%">
+                                    <span class="sr-only">1/3</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 class="panel-title">进度条</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="wizard-content">
+                            <div class="wizard-pane active" role="tabpanel">
+                                近日沃尔沃宣布将联合瑞典汽车安全公司奥托立夫(AUTOLIV)成立一个独立子公司，该公司将专攻瞄准未来车型自动驾驶技
+                                术相关的研发。奥托立夫公司(AUTOLIV)是在瑞典设立的一家国际跨国公司，公司多年来研发汽车电子安全系统、电子控制单元，汽车方向盘系统以及夜视
+                                和雷达传感系统，新的合作能够让新公司吸取Autoliv多年来在汽车驾驶安全配件制造方面的经验，研发未来用于沃尔沃或其它厂商的无人驾驶软件系统。
+                            </div>
+                            <div class="wizard-pane" role="tabpanel">
+                                在试运营期间，Jio将向全印度人免费提供服务，直到今年年底。在免费期过后，其数据流量月资费也低至每月149卢比（约合15元人民币）。安巴尼上周在公司年度全体大会上对投资者说：“任何、所有能实现数字化的东西都将快速走向数字化，生活将走向数字化。”目前，只有五分之一的印度成年人口能够上网。在印度，公共WiFi热点极少。城市贫困区缺乏高速宽带所需的基础设备，更不用说乡村地区了。
+                            </div>
+                            <div class="wizard-pane" role="tabpanel">
+                                车轮查违章与百度地图推出《中国车主违章地图大数据》报告，江苏高居“违章停车”榜首，在全国范围内，江苏、湖北、山东、浙江以及北京五个省市中的车主违章比例最高，其中江苏省以高达11.52%的比例遥遥领先。另外，江苏、湖北、山东三省的“马路杀手”已经超过了全国人口最多的广东省。有62.38%是不按规定行驶，26.18%超速、7.13%违章停车、2.82%无视尾号限行、1.49%不系安全带和不带头盔。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="margin-bottom-30">
+                    <div class="nav-tabs-inverse nav-tabs-vertical" id="exampleWizardTabs" data-approve="nav-tabs">
+                        <ul class="nav nav-tabs nav-tabs-solid" role="tablist">
+                            <li class="active" role="presentation">
+                                <a data-toggle="tab" href="#exampleTab1" aria-controls="exampleTab1" role="tab">
+                                    <i class="icon wb-home margin-0" aria-hidden="true"></i></a>
+                            </li>
+                            <li role="presentation">
+                                <a data-toggle="tab" href="#exampleTab2" aria-controls="exampleTab2" role="tab">
+                                    <i class="icon wb-settings margin-0" aria-hidden="true"></i></a>
+                            </li>
+                            <li role="presentation">
+                                <a data-toggle="tab" href="#exampleTab3" aria-controls="exampleTab3" role="tab">
+                                    <i class="icon wb-star margin-0" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="exampleTab1" role="tabpanel">
+                                近日沃尔沃宣布将联合瑞典汽车安全公司奥托立夫(AUTOLIV)成立一个独立子公司，该公司将专攻瞄准未来车型自动驾驶技
+                                术相关的研发。奥托立夫公司(AUTOLIV)是在瑞典设立的一家国际跨国公司，公司多年来研发汽车电子安全系统、电子控制单元，汽车方向盘系统以及夜视
+                                和雷达传感系统，新的合作能够让新公司吸取Autoliv多年来在汽车驾驶安全配件制造方面的经验，研发未来用于沃尔沃或其它厂商的无人驾驶软件系统。
+                            </div>
+                            <div class="tab-pane" id="exampleTab2" role="tabpanel">
+                                在试运营期间，Jio将向全印度人免费提供服务，直到今年年底。在免费期过后，其数据流量月资费也低至每月149卢比（约合15元人民币）。安巴尼上周在公司年度全体大会上对投资者说：“任何、所有能实现数字化的东西都将快速走向数字化，生活将走向数字化。”目前，只有五分之一的印度成年人口能够上网。在印度，公共WiFi热点极少。城市贫困区缺乏高速宽带所需的基础设备，更不用说乡村地区了。
+                            </div>
+                            <div class="tab-pane" id="exampleTab3" role="tabpanel">
+                                车轮查违章与百度地图推出《中国车主违章地图大数据》报告，江苏高居“违章停车”榜首，在全国范围内，江苏、湖北、山东、浙江以及北京五个省市中的车主违章比例最高，其中江苏省以高达11.52%的比例遥遥领先。另外，江苏、湖北、山东三省的“马路杀手”已经超过了全国人口最多的广东省。有62.38%是不按规定行驶，26.18%超速、7.13%违章停车、2.82%无视尾号限行、1.49%不系安全带和不带头盔。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+
+                <div class="margin-bottom-30">
+                    <div class="panel-group" id="exampleWizardAccordion" aria-multiselectable="true" role="tablist">
+                        <div class="panel">
+                            <div class="panel-heading" id="exampleHeading1" role="tab">
+                                <a class="panel-title" data-toggle="collapse" href="#exampleCollapse1" data-parent="#exampleWizardAccordion" aria-expanded="true" aria-controls="exampleCollapse1">
+                                    折叠面板分组 #1
+                                </a>
+                            </div>
+                            <div class="panel-collapse collapse in" id="exampleCollapse1" aria-labelledby="exampleHeading1" role="tabpanel">
+                                <div class="panel-body">
+                                    近日沃尔沃宣布将联合瑞典汽车安全公司奥托立夫(AUTOLIV)成立一个独立子公司，该公司将专攻瞄准未来车型自动驾驶技
+                                    术相关的研发。奥托立夫公司(AUTOLIV)是在瑞典设立的一家国际跨国公司，公司多年来研发汽车电子安全系统、电子控制单元，汽车方向盘系统以及夜视
+                                    和雷达传感系统，新的合作能够让新公司吸取Autoliv多年来在汽车驾驶安全配件制造方面的经验，研发未来用于沃尔沃或其它厂商的无人驾驶软件系统。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading" id="exampleHeading2" role="tab">
+                                <a class="panel-title collapsed" data-toggle="collapse" href="#exampleCollapse2" data-parent="#exampleWizardAccordion" aria-expanded="false" aria-controls="exampleCollapse2">
+                                    折叠面板分组 #2
+                                </a>
+                            </div>
+                            <div class="panel-collapse collapse" id="exampleCollapse2" aria-labelledby="exampleHeading2" role="tabpanel">
+                                <div class="panel-body">
+                                    在试运营期间，Jio将向全印度人免费提供服务，直到今年年底。在免费期过后，其数据流量月资费也低至每月149卢比（约合15元人民币）。安巴尼上周在公司年度全体大会上对投资者说：“任何、所有能实现数字化的东西都将快速走向数字化，生活将走向数字化。”目前，只有五分之一的印度成年人口能够上网。在印度，公共WiFi热点极少。城市贫困区缺乏高速宽带所需的基础设备，更不用说乡村地区了。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-heading" id="exampleHeading3" role="tab">
+                                <a class="panel-title collapsed" data-toggle="collapse" href="#exampleCollapse3" data-parent="#exampleWizardAccordion" aria-expanded="false" aria-controls="exampleCollapse3">
+                                    折叠面板分组 #3
+                                </a>
+                            </div>
+                            <div class="panel-collapse collapse" id="exampleCollapse3" aria-labelledby="exampleHeading3" role="tabpanel">
+                                <div class="panel-body">
+                                    车轮查违章与百度地图推出《中国车主违章地图大数据》报告，江苏高居“违章停车”榜首，在全国范围内，江苏、湖北、山东、浙江以及北京五个省市中的车主违章比例最高，其中江苏省以高达11.52%的比例遥遥领先。另外，江苏、湖北、山东三省的“马路杀手”已经超过了全国人口最多的广东省。有62.38%是不按规定行驶，26.18%超速、7.13%违章停车、2.82%无视尾号限行、1.49%不系安全带和不带头盔。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/vendor/formvalidation/formValidation.min.js" data-name="formValidation"></script>
+<script src="/vendor/formvalidation/framework/bootstrap.min.js" data-deps="formValidation"></script>
+<script src="/vendor/matchheight/jquery.matchHeight.min.js"></script>
+<script src="/vendor/jquery-wizard/jquery-wizard.min.js" data-name="wizard"></script>
+<script src="/js/examples/forms/wizard.js" data-deps="wizard"></script>

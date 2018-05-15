@@ -1,0 +1,76 @@
+<title>ECharts</title>
+
+<div class="page animation-fade">
+    <div class="page-header page-header-bordered">
+        <h1 class="page-title">百度 ECharts</h1>
+        <div class="page-header-actions">
+            <a class="btn btn-inverse btn-round" href="http://echarts.baidu.com/" target="_blank">
+                <i class="icon wb-link" aria-hidden="true"></i> <span class="hidden-xs">官网</span>
+            </a>
+        </div>
+    </div>
+    <div class="page-content">
+        <p>ECharts，是百度EFE团队推出的一个纯 Javascript 的图表库，可以流畅的运行在 PC 和移动设备上，底层依赖轻量级的 Canvas 类库
+            ZRender，提供直观，生动，可交互，可高度个性化定制的数据可视化图表。ECharts 3 中更是加入了更多丰富的交互功能以及更多的可视化效果，并且对移动端做了深度的优化。</p>
+        <p>以下示例仅仅展示了 Echarts 和 Amdui 的结合效果，更多示例
+            <a class="alert-link" href="http://echarts.baidu.com/examples.html" target="_blank">请前往官网查看</a>
+            。
+        </p>
+        <pre>&lt;!--引入百度地图--&gt;
+&lt;!--建议使用自己的ak，避免出现问题--&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://api.map.baidu.com/getscript?v=2.0&amp;ak=ObQAHaA2vmgzruRgw43QWoAhXhuzgOVD&amp;services=&amp;t=20170207140543&quot;&gt;&lt;/script&gt;</pre>
+        <hr>
+        <div class="row">
+            <div class="col-xlg-4 col-md-6">
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">全国主要城市空气质量</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-link" href="http://echarts.baidu.com/demo.html#effectScatter-map" target="_blank" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body padding-0 height-400" style="width:100%" id="echartsDemo1"></div>
+                </div>
+            </div>
+            <div class="col-xlg-4 col-md-6">
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">上证指数</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-link" href="http://echarts.baidu.com/demo.html#candlestick-sh" target="_blank" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body padding-0 height-400" id="echartsDemo2"></div>
+                </div>
+            </div>
+            <div class="col-xlg-4 col-md-6">
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">热力图与百度地图扩展</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-link" href="http://echarts.baidu.com/demo.html#heatmap-bmap" target="_blank" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body padding-0 height-400" id="echartsDemo3"></div>
+                </div>
+            </div>
+            <div class="col-xlg-4 col-md-6">
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">AQI - 雷达图</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-link" href="http://echarts.baidu.com/demo.html#radar-aqi" target="_blank" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body padding-0 height-400" id="echartsDemo4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/vendor/echarts/echarts.min.js" data-name="echarts"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=ObQAHaA2vmgzruRgw43QWoAhXhuzgOVD&services=&t=20170207140543"></script>
+<script src="/vendor/echarts/map/js/china.js" data-deps="echarts"></script>
+<script src="/vendor/echarts/bmap.min.js" data-deps="echarts"></script>
+<script src="/js/examples/charts/echarts.js"></script>

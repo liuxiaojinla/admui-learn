@@ -1,0 +1,350 @@
+<title>面板动画</title>
+
+<link rel="stylesheet" href="/css/examples/components/layouts/panel-transition.css">
+
+<div class=" page animation-fade">
+    <div class="page-header">
+        <h1 class="page-title">面板动画</h1>
+        <div class="page-header-actions">
+            <div class="btn-group btn-group-sm" id="withBtnGroup" aria-label="面板动画" role="group">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-pure dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        切换动画 <span class="icon wb-chevron-down-mini" aria-hidden="true"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                        <li data-type="fade">
+                            <a href="javascript:;">Fade</a>
+                        </li>
+                        <li data-type="scale-up">
+                            <a href="javascript:;">Scale Up</a>
+                        </li>
+                        <li data-type="slide-left">
+                            <a href="javascript:;">Slide Left</a>
+                        </li>
+                        <li data-type="slide-right">
+                            <a href="javascript:;">Slide Right</a>
+                        </li>
+                        <li data-type="slide-top">
+                            <a href="javascript:;">Slide Top</a>
+                        </li>
+                        <li data-type="slide-bottom">
+                            <a href="javascript:;">Slide Bottom</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="exampleTransition" class="page-content container-fluid" data-plugin="animateList">
+        <ul class="blocks-xs-100 blocks-md-2 blocks-xlg-3">
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 1</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 2</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 3</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 4</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 5</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 6</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 7</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 8</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 9</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 10</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 11</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 12</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 13</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 14</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 15</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 16</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 17</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="panel panel-bordered">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">本篇引语 - 18</h3>
+                        <div class="panel-actions">
+                            <a class="panel-action icon wb-refresh" data-toggle="panel-refresh" data-load-type="round-circle" data-load-callback="customRefreshCallback" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-minus" aria-expanded="true" data-toggle="panel-collapse" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-expand" data-toggle="panel-fullscreen" aria-hidden="true"></a>
+                            <a class="panel-action icon wb-close" data-toggle="panel-close" aria-hidden="true"></a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            《学而》是《论语》第一篇的篇名。《论语》中各篇一般都是以第一章的前二三个字作为该篇的篇名。《学而》一篇包括16章，内容涉及诸多方面。其中重点是「吾日三省吾身」；「节用而爱人，使民以时」；「礼之用，和为贵」以及仁、孝、信等道德范畴。</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="/js/examples/components/layouts/panel-transition.js"></script>

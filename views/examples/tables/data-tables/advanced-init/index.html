@@ -1,0 +1,89 @@
+<title>高级初始化</title>
+
+<link rel="stylesheet" href="/vendor/datatables-bootstrap/dataTables.bootstrap.css">
+<link rel="stylesheet" href="/vendor/datatables-responsive/dataTables.responsive.css">
+<link rel="stylesheet" href="/vendor/highlight/default.css">
+<link rel="stylesheet" href="/vendor/highlight/github-gist.css">
+<link rel="stylesheet" href="/vendor/highlight/highlight.css">
+<link rel="stylesheet" href="/css/examples/tables/data-tables/examples.css">
+
+<script src="/vendor/datatables/jquery.dataTables.min.js" data-name="dataTables"></script>
+<script src="/vendor/datatables-bootstrap/dataTables.bootstrap.min.js" data-deps="dataTables"></script>
+<script src="/vendor/datatables-responsive/dataTables.responsive.min.js" data-deps="dataTables"></script>
+<script src="/vendor/highlight/highlight.pack.min.js"></script>
+
+<div class="page page-full animation-fade page-data-tables">
+    <div class="page-aside">
+        <div class="page-aside-switch">
+            <i class="icon wb-chevron-left" aria-hidden="true"></i>
+            <i class="icon wb-chevron-right" aria-hidden="true"></i>
+        </div>
+        <div class="page-aside-inner height-full" data-plugin="slimScroll">
+            <section class="page-aside-section">
+                <h5 class="page-aside-title">高级初始化</h5>
+                <div class="list-group">
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/events-live.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> DOM/jQuery 事件
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/dt-events.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> Datatables 事件
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/column-render.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 列渲染
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/length-menu.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 自定义长度菜单
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/dom-multiple-elements.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 多个表格操作元素
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/complex-header.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 隐藏列的复杂的表头
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/object-dom-read.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 把HTML转化为DT内部数据对象
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/html5-data-options.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> HTML5 data-* 属性 - 表格选项
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/html5-data-attributes.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> Html5 data-* 属性 - 单元格数据
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/defaults.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 默认设置
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/row-callback.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 创建行回调
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/row-grouping.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 行分组
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/footer-callback.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 表格foot回调
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/dom-toolbar.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 自定义工具按钮元素
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/advanced-init/sort-direction-control.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 高级排序控制
+                    </a>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    <div class="page-main">
+        <div class="page-header">
+            <h1 class="page-title">DataTables 高级初始化</h1>
+            <div class="page-header-actions">
+                <a class="btn btn-inverse btn-round" href="https://datatables.net/" target="_blank">
+                    <i class="icon wb-link" aria-hidden="true"></i> <span class="hidden-xs">官网</span></a>
+                <a class="btn btn-inverse btn-round" href="http://datatables.club/" target="_blank">
+                    <i class="icon fa-language" aria-hidden="true"></i> <span class="hidden-xs">中文网</span></a>
+            </div>
+        </div>
+        <div class="page-content" id="DTConent">
+            <%- include(path1) %>
+        </div>
+    </div>
+</div>

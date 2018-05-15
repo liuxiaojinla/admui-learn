@@ -1,0 +1,99 @@
+<title>文本编辑器</title>
+
+<link rel="stylesheet" href="/vendor/summernote/summernote.css">
+
+<div class="page animation-fade page-forms">
+    <div class="page-header">
+        <h1 class="page-title">文本编辑器</h1>
+        <ol class="breadcrumb">
+            <li>
+                <a>首页</a>
+            </li>
+            <li>
+                <a href="javascript:;">表单</a>
+            </li>
+            <li class="active">文本编辑器</li>
+        </ol>
+        <div class="page-header-actions">
+            <a class="btn btn-default btn-outline btn-round" href="http://summernote.org" target="_blank">
+                <i class="icon wb-link" aria-hidden="true"></i> <span class="hidden-xs">官网</span></a>
+        </div>
+    </div>
+    <div class="page-content container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">标准模式</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="summernote" data-plugin="summernote" data-lang="zh-CN">
+                            <h4>基于Bootstrap的强大HTML文本编辑器Summernote</h4>
+                            <p>Summernote是一个轻量级、灵活基于Bootstrap和jQuery的HTML文本编辑器，拥有强大的API配
+                                置功能，多国语言支持支持Bootstrap2.x和3.0，支持视频和图片上传以及代码的高亮显示，多种
+                                后台语言版本示例以及多主体支持，在浏览器兼容方面，支持IE9+以及现代的浏览器Chrome,
+                                Firefox,Safari等，在移动端应该有不错的表现，还是很不错的，值得使用。</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">漂浮模式</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>添加 <code>data-air-mode="true"</code></p>
+                        <div data-plugin="summernote" data-air-mode="true" data-lang="zh-CN">
+                            <h4>基于Bootstrap的强大HTML文本编辑器Summernote</h4>
+                            <p>Summernote是一个轻量级、灵活基于Bootstrap和jQuery的HTML文本编辑器，拥有强大的API配
+                                置功能，多国语言支持支持Bootstrap2.x和3.0，支持视频和图片上传以及代码的高亮显示，多种
+                                后台语言版本示例以及多主体支持，在浏览器兼容方面，支持IE9+以及现代的浏览器Chrome,
+                                Firefox,Safari等，在移动端应该有不错的表现，还是很不错的，值得使用。</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">自定义工具栏</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div data-plugin="summernote" data-plugin-options='{"toolbar":[["style", ["bold", "italic", "underline", "clear"]],["color", ["color"]],["para", ["ul", "ol", "paragraph"]]]}' data-lang="zh-CN">
+                            <h4>基于Bootstrap的强大HTML文本编辑器Summernote</h4>
+                            <p>Summernote是一个轻量级、灵活基于Bootstrap和jQuery的HTML文本编辑器，拥有强大的API配
+                                置功能，多国语言支持支持Bootstrap2.x和3.0，支持视频和图片上传以及代码的高亮显示，多种
+                                后台语言版本示例以及多主体支持，在浏览器兼容方面，支持IE9+以及现代的浏览器Chrome,
+                                Firefox,Safari等，在移动端应该有不错的表现，还是很不错的，值得使用。</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">单击编辑</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            <button type="button" class="btn btn-outline btn-primary" id="edit" onclick="edit()">编辑
+                            </button>
+                            <button type="button" class="btn btn-outline btn-primary" id="save" onclick="save()">保存
+                            </button>
+                        </p>
+                        <div class="click2edit">
+                            单击 <b>编辑按钮</b> 试试试试 ~~
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/vendor/summernote/summernote.min.js" data-name="summernote"></script>
+<script src="/vendor/summernote/lang/summernote-zh-CN.min.js" data-deps="summernote"></script>
+<script src="/js/examples/forms/editor-summernote.js"></script>

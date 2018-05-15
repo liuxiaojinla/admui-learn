@@ -1,0 +1,74 @@
+<title>账户信息</title>
+
+<link rel="stylesheet" href="/css/system/account.css">
+<link rel="stylesheet" href="/vendor/jquery-strength/jquery-strength.css">
+<link rel="stylesheet" href="/vendor/alertify-js/alertify.css">
+<div class="page animation-fade page-account">
+    <div class="page-content">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="widget widget-shadow text-center">
+                    <div class="widget-header">
+                        <div class="widget-header-content">
+                            <a class="avatar avatar-lg" href="javascript:;">
+                                <img src="/images/avatar.svg" alt="admin">
+                            </a>
+                            <h4 class="account-user">Admin</h4>
+                            <p>上次登录：2015-11-12</p>
+                        </div>
+                    </div>
+                    <div class="widget-footer">
+                        <div class="row no-space">
+                            <div class="col-xs-4">
+                                <strong class="account-stat-count">260</strong> <span>登录</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <strong class="account-stat-count msg-number">180</strong> <span>消息</span>
+                            </div>
+                            <div class="col-xs-4">
+                                <strong class="account-stat-count log-number">2K+</strong> <span>日志</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="panel">
+                    <div class="panel-body nav-tabs-animate">
+                        <ul class="nav nav-tabs nav-tabs-line tabList" role="tablist">
+                            <li class="news<% if (fileName === 'index.html'){ %> active<% } %>" role="presentation" id="accountMsg">
+                                <a href="/system/account/index.html" data-pjax="#accountContent" aria-expanded="true">
+                                    <i class="icon fa-comment-o" aria-hidden="true"></i> 消息
+                                    <span class="badge badge-danger"></span></a>
+                            </li>
+                            <li class="<% if (fileName === 'log.html'){ %> active<% } %>" role="presentation " id="accountLog">
+                                <a href="/system/account/log.html" data-pjax="#accountContent" aria-expanded="false">
+                                    <i class="icon fa-file-text-o" aria-hidden="true"></i> 日志
+                                </a>
+                            </li>
+                            <li class="<% if (fileName === 'password.html'){ %> active<% } %>" role="presentation">
+                                <a href="/system/account/password.html" data-pjax="#accountContent" aria-expanded="false">
+                                    <i class="icon fa-key" aria-hidden="true"></i> 密码
+                                </a>
+                            </li>
+                            <li class="<% if (fileName === 'display.html'){ %> active<% } %>" role="presentation">
+                                <a href="/system/account/display.html" data-pjax="#accountContent" aria-expanded="false">
+                                    <i class="icon fa-magic" aria-hidden="true"></i> 显示
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content margin-top-15">
+                            <div class="animation-slide-left tab-message active" id="accountContent">
+                                <%- include(path1) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/vendor/jquery-strength/jquery-strength.min.js"></script>
+<script src="/vendor/alertify-js/alertify.min.js"></script>
+<script src="/js/system/account/account.js" data-deps="message"></script>

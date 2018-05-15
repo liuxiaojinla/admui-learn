@@ -1,0 +1,94 @@
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">添加行</h3>
+    </div>
+    <div class="alert alert-warning" role="alert">
+        <p>本示例演示了通过点击按钮添加一条数据到表格中</p>
+        <p><code>row.add()</code> 添加一行</p>
+        <p><code>rows.add()</code>添加多行（注意多了一个s）</p>
+        <p>需要注意的是，你调用这个方法后需要重绘表格（调用 <code>draw()</code>）才能看到效果</p>
+    </div>
+    <div class="panel-body">
+        <button type="button" class="btn btn-success margin-bottom-15" id="DTAddRow">添加行</button>
+        <table class="table table-bordered table-hover dataTable table-striped width-full text-nowrap" id="dataTableExample">
+            <thead>
+            <tr>
+                <th>第1列</th>
+                <th>第2列</th>
+                <th>第3列</th>
+                <th>第4列</th>
+                <th>第5列</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+                <th>第1列</th>
+                <th>第2列</th>
+                <th>第3列</th>
+                <th>第4列</th>
+                <th>第5列</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<div class="panel nav-tabs-horizontal">
+    <div class="panel-body" data-approve="nav-tabs">
+        <ul class="nav nav-tabs nav-tabs-line" role="tablist">
+            <li role="presentation" class="active">
+                <a data-toggle="tab" href="#DTJS" aria-controls="DTJS" role="tab" aria-expanded="false">JavaScript</a>
+            </li>
+            <li role="presentation">
+                <a data-toggle="tab" href="#DTHtml" aria-controls="DTHtml" role="tab" aria-expanded="true">HTML</a>
+            </li>
+        </ul>
+        <div class="tab-content margin-top-15">
+            <div class="tab-pane active" id="DTJS" role="tabpanel">
+				<pre data-plugin="highlight"><code class="js">var t = $('#dataTableExample').DataTable($.po('dataTable'));
+var counter = 1;
+
+$('#DTddRow').on('click', function () {
+    t.row.add([
+        counter + '.1',
+		counter + '.2',
+		counter + '.3',
+		counter + '.4',
+		counter + '.5'
+	]).draw(false);
+
+	counter++;
+});
+
+// 自动添加第一行的数据
+$('#DTddRow').click();</code></pre>
+            </div>
+            <div class="tab-pane" id="DTHtml" role="tabpanel">
+				<pre data-plugin="highlight"><code class="html">&lt;button type="button" class="btn btn-success margin-bottom-15" id="DTAddRow"&gt;添加行&lt;/button&gt;
+&lt;table class="table table-bordered table-hover dataTable table-striped width-full text-nowrap"
+       id="dataTableExample"&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th&gt;第1列&lt;/th&gt;
+        &lt;th&gt;第2列&lt;/th&gt;
+        &lt;th&gt;第3列&lt;/th&gt;
+        &lt;th&gt;第4列&lt;/th&gt;
+        &lt;th&gt;第5列&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tfoot&gt;
+    &lt;tr&gt;
+        &lt;th&gt;第1列&lt;/th&gt;
+        &lt;th&gt;第2列&lt;/th&gt;
+        &lt;th&gt;第3列&lt;/th&gt;
+        &lt;th&gt;第4列&lt;/th&gt;
+        &lt;th&gt;第5列&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/themes/classic/base/js/app.js" data-name="app"></script>
+<script src="/js/examples/tables/data-tables/api/add-row.js" data-deps="app"></script>

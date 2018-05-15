@@ -1,0 +1,84 @@
+<title>API</title>
+
+<link rel="stylesheet" href="/vendor/datatables-bootstrap/dataTables.bootstrap.css">
+<link rel="stylesheet" href="/vendor/datatables-fixedheader/dataTables.fixedHeader.css">
+<link rel="stylesheet" href="/vendor/datatables-responsive/dataTables.responsive.css">
+<link rel="stylesheet" href="/vendor/highlight/default.css">
+<link rel="stylesheet" href="/vendor/highlight/github-gist.css">
+<link rel="stylesheet" href="/vendor/highlight/highlight.css">
+<link rel="stylesheet" href="/css/examples/tables/data-tables/examples.css">
+
+<script src="/vendor/datatables/jquery.dataTables.min.js" data-name="dataTables"></script>
+<script src="/vendor/datatables-bootstrap/dataTables.bootstrap.min.js" data-deps="dataTables"></script>
+<script src="/vendor/datatables-responsive/dataTables.responsive.min.js" data-deps="dataTables"></script>
+<script src="/vendor/highlight/highlight.pack.min.js"></script>
+
+<div class="page page-full animation-fade page-data-tables">
+    <div class="page-aside">
+        <div class="page-aside-switch">
+            <i class="icon wb-chevron-left" aria-hidden="true"></i>
+            <i class="icon wb-chevron-right" aria-hidden="true"></i>
+        </div>
+        <div class="page-aside-inner height-full" data-plugin="slimScroll">
+            <section class="page-aside-section">
+                <h5 class="page-aside-title">API</h5>
+                <div class="list-group">
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/add-row.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 添加行
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/multi-filter.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 给每一列添加搜索框
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/multi-filter-select.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 给每一列添加下拉框搜索
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/highlight.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 高亮鼠标停留的行和列
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/row-details.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 显示行的附加信息
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/select-row.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 选择行(多行)
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/select-single-row.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 选择行并删除(单行)
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/form.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 表单输入框
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/counter-columns.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 索引列
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/show-hide.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 动态显示/隐藏列
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/api-in-init.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 在回调方法中使用API
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/tabs-and-scrolling.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 带垂直滚动条和Bootstrap Tabs控件
+                    </a>
+                    <a class="list-group-item" href="/examples/tables/data-tables/api/regex.html" data-pjax="#DTConent">
+                        <i class="icon fa-circle-o"></i> 搜索API(正则表达式)
+                    </a>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    <div class="page-main">
+        <div class="page-header">
+            <h1 class="page-title">DataTables API</h1>
+            <div class="page-header-actions">
+                <a class="btn btn-inverse btn-round" href="https://datatables.net/" target="_blank">
+                    <i class="icon wb-link" aria-hidden="true"></i> <span class="hidden-xs">官网</span></a>
+                <a class="btn btn-inverse btn-round" href="http://datatables.club/" target="_blank">
+                    <i class="icon fa-language" aria-hidden="true"></i> <span class="hidden-xs">中文网</span></a>
+            </div>
+        </div>
+        <div class="page-content" id="DTConent">
+            <%- include(path1) %>
+        </div>
+    </div>
+</div>
