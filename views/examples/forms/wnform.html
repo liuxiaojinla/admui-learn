@@ -1,10 +1,6 @@
 <title>万能表单</title>
 
-<style>
-	#design .panel-heading {
-		cursor: pointer;
-	}
-</style>
+<link rel="stylesheet" href="/css/examples/forms/wnform.css">
 
 <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
 
@@ -23,17 +19,37 @@
 		<div class="row">
 
 			<div class="col-md-3">
-				<div class="panel nav-tabs-horizontal">
-					<div class="panel-heading">
-						<h3 class="panel-title">组件</h3>
-					</div>
+				<div class="panel nav-tabs-horizontal" data-approve="nav-tabs" id="control">
+					<ul class="nav nav-tabs nav-tabs-bottom nav-tabs-line" role="tablist">
+						<li class="active" role="presentation">
+							<a data-toggle="tab" href="#field-basic" aria-controls="field-basic" role="tab">
+								<i class="icon wb-plugin" aria-hidden="true"></i>基础
+							</a>
+						</li>
+						<li role="presentation">
+							<a data-toggle="tab" href="#field-image" aria-controls="field-image" role="tab">
+								<i class="icon wb-user" aria-hidden="true"></i>图片
+							</a>
+						</li>
+						<li role="presentation">
+							<a data-toggle="tab" href="#field-contacts" aria-controls="field-contacts" role="tab">
+								<i class="icon wb-tag" aria-hidden="true"></i>联系人
+							</a>
+						</li>
+						<li role="presentation">
+							<a data-toggle="tab" href="#field-chart" aria-controls="field-chart" role="tab">
+								<i class="icon wb-cloud" aria-hidden="true"></i>图表
+							</a>
+						</li>
+					</ul>
 					<div class="panel-body">
 						<div class="tab-content">
 							<div class="tab-pane active" id="field-basic" role="tabpanel">
 								<div class="row">
 									<button type="button" class="btn btn-primary col-xs-3"
 											v-for="(item,name) in fieldsConfig"
-											:key="item.name" @click="addControl(name)">
+											:key="item.name" @click="addControl(name)"
+											v-if="item.isShow!==false">
 										<i :class="item.icon" aria-hidden="true"></i> <br>
 										<span class="text-uppercase hidden-xs">{{item.title}}</span>
 									</button>
@@ -47,48 +63,30 @@
 							</div>
 						</div>
 					</div>
-					<ul class="nav nav-tabs nav-tabs-bottom nav-tabs-line dropup" role="tablist">
-						<li class="active" role="presentation">
-							<a data-toggle="tab" href="#field-basic" aria-controls="exampleTab_1" role="tab">
-								<i class="icon wb-plugin" aria-hidden="true"></i>基础
-							</a>
-						</li>
-						<li role="presentation">
-							<a data-toggle="tab" href="#field-image" aria-controls="exampleTab_2" role="tab">
-								<i class="icon wb-user" aria-hidden="true"></i>图片
-							</a>
-						</li>
-						<li role="presentation">
-							<a data-toggle="tab" href="#field-contacts" aria-controls="exampleTab_3" role="tab">
-								<i class="icon wb-tag" aria-hidden="true"></i>联系人
-							</a>
-						</li>
-						<li role="presentation">
-							<a data-toggle="tab" href="#field-chart" aria-controls="exampleTab_4" role="tab">
-								<i class="icon wb-cloud" aria-hidden="true"></i>图表
-							</a>
-						</li>
-					</ul>
 				</div>
 			</div>
 
 			<div class="col-md-6">
-				<div class="panel">
+				<div class="panel" id="preview">
 					<div class="panel-heading">
-						<h3 class="panel-title">{{form.title}}</h3>
+						<h3 class="panel-title" @click="chooseControl({name:'form',options:form})">{{form.title}}</h3>
 					</div>
 					<div class="panel-body">
 						<div class="description" v-html="form.description"></div>
 
-						<div class="form-group" v-for="field in form.fields"
+						<div class="form-group" :class="{selected:control===field}" v-for="(field,index) in form.fields"
 								:key="field.object_id" @click="chooseControl(field)">
+							<div class="pull-right action">
+								<button type="button" class="btn btn-pure btn-danger icon wb-trash" @click.capture.stop="removeControl(index)"></button>
+							</div>
+
 							<label class="control-label" :for="field.object_id">{{field.options.title}}</label>
 
 							<input type="text" class="form-control" :id="field.object_id" name="field.object_id"
 									:placeholder="field.options.placeholder" v-if="field.name==='string'">
 
 						</div>
-
+						<!--{{form}}-->
 					</div>
 				</div>
 			</div>
@@ -98,7 +96,23 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">配置</h3>
 					</div>
-					<div class="panel-body">
+					<div class="panel-body" style="overflow-y: auto">
+						<template v-for="group in getControlOptions(control.name)">
+							<blockquote>{{group.title}}</blockquote>
+							<div class="form-group" v-for="(option,key) in group.options"
+									v-if="isShowAttribute(option)">
+								<label class="control-label" :for="key">{{option.title}}</label>
+
+								<input type="text" class="form-control" :id="key" v-model="chooseOptions[key]"
+										v-if="option.type==='string'">
+								<div class="checkbox-custom checkbox-primary" v-if="option.type==='switch'">
+									<input type="checkbox" :id="key" v-model="chooseOptions[key]"/>
+									<label :for="key">开启</label>
+								</div>
+
+							</div>
+						</template>
+						{{control}}
 					</div>
 				</div>
 			</div>
@@ -108,123 +122,4 @@
 
 </div>
 
-<script>
-
-	const COMMON_CONFIG = {
-		basic: {
-			title: '基本配置',
-			options: {
-				title: {
-					title: '标题',
-					type: 'string',
-					value: '标题'
-				}
-			}
-		},
-		fill: {
-			title: '填写配置',
-			options: {}
-		},
-		layout: {
-			title: '布局配置',
-			options: {}
-		},
-		advanced: {
-			title: '高级配置',
-			options: {}
-		}
-	};
-
-	const FIELD_CONFIG = {
-		'string': {
-			title: '单行文本',
-			options: {
-				basic: {}
-			}
-		}
-	};
-
-	function initFieldConfig() {
-		const keys = Object.keys(FIELD_CONFIG);
-		for (const name of keys) {
-			const field = FIELD_CONFIG[name];
-			const options = Object.assign({}, COMMON_CONFIG);
-			for (const key in field.options) {
-				if (!field.options.hasOwnProperty(key)) continue;
-				options[key] = Object.assign(options[key] || {}, field.options[key]);
-			}
-			field.options = options;
-		}
-		return FIELD_CONFIG;
-	}
-
-	function random(min, max) {
-		return Math.floor(Math.random() * (max - min)) + min;
-	}
-
-	function createObjectId(prefix = '') {
-		const k1 = random(100, 999);
-		const k2 = new Date().getTime().toString().substring(10);
-		const k3 = random(100, 999);
-		return prefix + k1 + k2 + k3;
-	}
-
-	new Vue({
-		el: document.getElementById('design'),
-		data: () => ({
-			form: {
-				title: '新表单',
-				description: '',
-				fields: []
-			},
-
-			fieldsConfig: initFieldConfig(),
-		}),
-		methods: {
-			//获取组件配置列表
-			getControlOptions(name) {
-				const result = [], options = this.fieldsConfig[name].options || {};
-				const gKeys = Object.keys(options);
-				for (const gKey of gKeys) {
-					const group = options[gKey];
-					group.options = group.options || {};
-
-					const item = {title: group.title, options: {}};
-					for (const key in group.options) {
-						if (!group.options.hasOwnProperty(key)) continue;
-						item.options[key] = group.options[key];
-					}
-					result.push(item);
-				}
-				return result;
-			},
-
-			//获取组件配置值
-			getControlOptionsValues(name) {
-				const options = this.getControlOptions(name);
-				const result = {};
-				for (const group of options) {
-					for (const key in group.options) {
-						if (!group.options.hasOwnProperty(key)) continue;
-						result[key] = group.options[key].value;
-					}
-				}
-				return result;
-			},
-
-			//添加组件
-			addControl(name) {
-				const options = this.getControlOptionsValues(name);
-				this.form.fields.push({
-					name: name,
-					options: options
-				});
-				console.log({
-					name: name,
-					options: options,
-					object_id: createObjectId(name)
-				});
-			}
-		}
-	});
-</script>
+<script src="/js/examples/forms/wnform.js"></script>
