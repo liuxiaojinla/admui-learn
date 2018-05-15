@@ -42,7 +42,7 @@
 							</a>
 						</li>
 					</ul>
-					<div class="panel-body">
+					<div class="panel-body" :style="{height:(winHeight-263)+'px'}">
 						<div class="tab-content">
 							<div class="tab-pane active" id="field-basic" role="tabpanel">
 								<div class="row">
@@ -67,7 +67,7 @@
 			</div>
 
 			<div class="col-md-6">
-				<div class="panel" id="preview">
+				<div class="panel" id="preview" :style="{height:(winHeight-223)+'px'}">
 					<div class="panel-heading">
 						<h3 class="panel-title" @click="chooseControl({name:'form',options:form})">{{form.title}}</h3>
 					</div>
@@ -77,7 +77,8 @@
 						<div class="form-group" :class="{selected:control===field}" v-for="(field,index) in form.fields"
 								:key="field.object_id" @click="chooseControl(field)">
 							<div class="pull-right action">
-								<button type="button" class="btn btn-pure btn-danger icon wb-trash" @click.capture.stop="removeControl(index)"></button>
+								<button type="button" class="btn btn-pure btn-danger icon wb-trash"
+										@click.capture.stop="removeControl(index)"></button>
 							</div>
 
 							<label class="control-label" :for="field.object_id">{{field.options.title}}</label>
@@ -96,7 +97,7 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">配置</h3>
 					</div>
-					<div class="panel-body" style="overflow-y: auto">
+					<div class="panel-body" :style="{height:(winHeight-274)+'px'}">
 						<template v-for="group in getControlOptions(control.name)">
 							<blockquote>{{group.title}}</blockquote>
 							<div class="form-group" v-for="(option,key) in group.options"

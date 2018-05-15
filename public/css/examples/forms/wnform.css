@@ -1,6 +1,7 @@
 #design {
 	background: url("/images/photos/view-9.jpg") no-repeat;
 	background-size: 100%;
+	padding-bottom: 0;
 }
 
 #design .panel {
@@ -16,7 +17,11 @@
 	border-color: #c9cbcf;
 }
 
-#preview {
+#preview, #control, #settings {
+	margin-bottom: 0;
+}
+
+#preview, #control .panel-body, #settings .panel-body {
 	overflow-y: auto
 }
 

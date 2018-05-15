@@ -122,23 +122,6 @@ function createObjectId(prefix = '') {
 	return prefix + k1 + k2 + k3;
 }
 
-(function () {
-	const previewWrapper = document.getElementById('preview');
-	const controlWrapper = document.getElementById('control');
-	const settingWrapper = document.getElementById('settings');
-
-	function resize() {
-		const height = $(window).height();
-		previewWrapper.style.height = (height - 183) + 'px';
-		controlWrapper.querySelector('.panel-body').style.height = (height - 223) + 'px';
-		settingWrapper.querySelector('.panel-body').style.height = (height - 234) + 'px';
-	}
-
-	resize();
-
-	window.addEventListener('resize', resize);
-})();
-
 
 const design = new Vue({
 	el: document.getElementById('design'),
@@ -161,8 +144,14 @@ const design = new Vue({
 				name: 'form',
 				options: form
 			},
-			chooseOptions: form
+			chooseOptions: form,
+
+			//window height
+			winHeight: $(window).height()
 		};
+	},
+	created() {
+		window.addEventListener('resize', () => design.winHeight = $(window).height());
 	},
 	methods: {
 		//获取组件配置列表
