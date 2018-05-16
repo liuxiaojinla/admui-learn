@@ -1,4 +1,9 @@
 window.control = (function () {
+
+	/**
+	 * 组件配置
+	 * @type {*}
+	 */
 	const CONTROL_CONFIG = {};
 
 	/**

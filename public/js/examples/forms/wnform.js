@@ -26,7 +26,7 @@ const FIELD_PARSE_CONTROL = {
 	data: () => ({}),
 	methods: {}
 };
-
+console.log(window)
 const design = new Vue({
 	el: document.getElementById('design'),
 	components: {
