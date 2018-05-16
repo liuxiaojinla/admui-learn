@@ -1,106 +1,4 @@
 /**
- * 公共属性配置
- * @type {*}
- */
-const COMMON_CONFIG = {
-	basic: {
-		title: '基本配置',
-		options: {
-			title: {
-				title: '标题',
-				type: 'string',
-				value: '标题'
-			},
-			tip: {
-				title: '提示信息',
-				type: 'string',
-				value: ''
-			}
-		}
-	},
-	fill: {
-		title: '填写配置',
-		options: {}
-	},
-	layout: {
-		title: '布局配置',
-		options: {}
-	},
-	advanced: {
-		title: '高级配置',
-		options: {
-			validate: {
-				title: '错误提示',
-				type: 'switch',
-				value: false
-			},
-			validateText: {
-				title: '提示信息',
-				type: 'string',
-				value: '',
-				isShow: (options) => options.validate
-			},
-			isHide: {
-				title: '隐藏组件',
-				type: 'switch',
-				value: false
-			}
-		}
-	}
-};
-
-/**
- * 字段配置
- * @type {*}
- */
-const FIELD_CONFIG = {
-	'form': {
-		title: '单行文本',
-		options: {
-			basic: {
-				description: {
-					type: 'rich-text',
-					value: ''
-				}
-			},
-			fill: undefined,
-			layout: undefined,
-			advanced: undefined,
-		},
-		isShow: false
-	},
-	'string': {
-		title: '单行文本',
-		options: {
-			basic: {}
-		}
-	}
-};
-
-/**
- * 初始化字段配置
- * @return {*}
- */
-function initFieldConfig() {
-	const keys = Object.keys(FIELD_CONFIG);
-	for (const name of keys) {
-		const field = FIELD_CONFIG[name];
-		const options = Object.assign({}, COMMON_CONFIG);
-		for (const key in field.options) {
-			if (!field.options.hasOwnProperty(key)) continue;
-
-			if (field.options[key] === undefined) {
-				delete options[key];
-			} else {
-				options[key] = Object.assign(options[key] || {}, field.options[key]);
-			}
-		}
-		field.options = options;
-	}
-	return FIELD_CONFIG;
-}
-
-/**
  * 生成随机数
  * @param min
  * @param max
@@ -122,22 +20,31 @@ function createObjectId(prefix = '') {
 	return prefix + k1 + k2 + k3;
 }
 
+const FIELD_PARSE_CONTROL = {
+	props: {field: Object},
+	template: document.getElementById('field-parse').innerHTML,
+	data: () => ({}),
+	methods: {}
+};
 
 const design = new Vue({
 	el: document.getElementById('design'),
+	components: {
+		'field-parse': FIELD_PARSE_CONTROL,
+	},
 	data: () => {
 		const form = {
 			title: '新表单',
 			description: '',
-			fields: []
+			fields: [],
+			layoutStyle: 'horizontal'
 		};
-
 		return {
 			//表单的配置
 			form: form,
 
 			//组件的配置
-			fieldsConfig: initFieldConfig(),
+			fieldsConfig: control.get(),
 
 			//选中的组件
 			control: {
@@ -152,6 +59,7 @@ const design = new Vue({
 	},
 	created() {
 		window.addEventListener('resize', () => design.winHeight = $(window).height());
+		console.log(this);
 	},
 	methods: {
 		//获取组件配置列表
@@ -161,7 +69,6 @@ const design = new Vue({
 			for (const gKey of gKeys) {
 				const group = options[gKey];
 				group.options = group.options || {};
-
 				const item = {title: group.title, options: {}};
 				for (const key in group.options) {
 					if (!group.options.hasOwnProperty(key)) continue;
@@ -171,7 +78,6 @@ const design = new Vue({
 			}
 			return result;
 		},
-
 		//获取组件配置值
 		getControlOptionsValues(name) {
 			const options = this.getControlOptions(name);
@@ -184,7 +90,6 @@ const design = new Vue({
 			}
 			return result;
 		},
-
 		//添加组件
 		addControl(name) {
 			const options = this.getControlOptionsValues(name);
@@ -196,23 +101,36 @@ const design = new Vue({
 			this.form.fields.push(control);
 			this.chooseControl(control);
 		},
-
+		//复制组件
+		copyControl(control) {
+			control = JSON.parse(JSON.stringify(control));
+			this.form.fields.push(control);
+			this.chooseControl(control);
+		},
 		//移除组件
 		removeControl(index) {
 			this.form.fields.splice(index, 1);
 			this.chooseControl({name: 'form', options: this.form});
 		},
-
 		//选择组件
 		chooseControl(control) {
 			this.control = control;
 			this.chooseOptions = control.options;
 		},
-
 		//是否显示属性
 		isShowAttribute(attribute) {
 			return !attribute.isShow || attribute.isShow(this.control.options) !== false;
+		},
+		//获取组件标签css class列表
+		getFieldLabelClass(field) {
+			return ['control-label', {
+				'col-sm-2': this.form.layoutStyle === 'horizontal'
+			}];
+		},
+		//获取组件标签css class列表
+		getFieldControlClass(field) {
+			const col = 'col-sm-' + field.options.inputWidth;
+			return [{[col]: this.form.layoutStyle === 'horizontal'}];
 		}
-
 	}
 });

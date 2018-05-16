@@ -2,8 +2,6 @@
 
 <link rel="stylesheet" href="/css/examples/forms/wnform.css">
 
-<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
-
 <div class="page animation-fade">
 
 	<div class="page-header">
@@ -74,20 +72,25 @@
 					<div class="panel-body">
 						<div class="description" v-html="form.description"></div>
 
-						<div class="form-group" :class="{selected:control===field}" v-for="(field,index) in form.fields"
-								:key="field.object_id" @click="chooseControl(field)">
-							<div class="pull-right action">
-								<button type="button" class="btn btn-pure btn-danger icon wb-trash"
-										@click.capture.stop="removeControl(index)"></button>
+						<draggable :list="form.fields" :options="{animation: 200}" class="form-horizontal">
+							<div class="form-group" :class="{selected:control===field}"
+									v-for="(field,index) in form.fields"
+									:key="field.object_id" @click="chooseControl(field)">
+								<div class="action">
+									<button type="button" class="btn btn-pure btn-primary icon wb-copy"
+											@click.capture.stop="copyControl(field)"></button>
+									<button type="button" class="btn btn-pure btn-danger icon wb-trash"
+											@click.capture.stop="removeControl(index)"></button>
+								</div>
+								<label :class="getFieldLabelClass(field)"
+										:for="field.object_id">{{field.options.title}}</label>
+								<div :class="getFieldControlClass(field)">
+									<field-parse :field="field"></field-parse>
+								</div>
 							</div>
+						</draggable>
 
-							<label class="control-label" :for="field.object_id">{{field.options.title}}</label>
-
-							<input type="text" class="form-control" :id="field.object_id" name="field.object_id"
-									:placeholder="field.options.placeholder" v-if="field.name==='string'">
-
-						</div>
-						<!--{{form}}-->
+						{{form}}
 					</div>
 				</div>
 			</div>
@@ -100,17 +103,38 @@
 					<div class="panel-body" :style="{height:(winHeight-274)+'px'}">
 						<template v-for="group in getControlOptions(control.name)">
 							<blockquote>{{group.title}}</blockquote>
-							<div class="form-group" v-for="(option,key) in group.options"
+							<div class="form-group" v-for="(option,aKey) in group.options"
 									v-if="isShowAttribute(option)">
-								<label class="control-label" :for="key">{{option.title}}</label>
+								<label class="control-label" :for="aKey">{{option.title}}</label>
 
-								<input type="text" class="form-control" :id="key" v-model="chooseOptions[key]"
+								<!--文本框-->
+								<input type="text" class="form-control" :id="aKey" v-model="chooseOptions[aKey]"
 										v-if="option.type==='string'">
-								<div class="checkbox-custom checkbox-primary" v-if="option.type==='switch'">
-									<input type="checkbox" :id="key" v-model="chooseOptions[key]"/>
-									<label :for="key">开启</label>
+								<!--开关-->
+								<div class="checkbox-custom checkbox-default" v-if="option.type==='switch'">
+									<input type="checkbox" :id="aKey" v-model="chooseOptions[aKey]"/>
+									<label :for="aKey">开启</label>
 								</div>
-
+								<!--单选框-->
+								<ul class="list-unstyled list-inline" v-if="option.type==='radio'">
+									<li v-for="(item,key) in option.items">
+										<div class="radio-custom radio-default">
+											<input type="radio" :name="aKey" :id="aKey+'_'+key" :value="key"
+													v-model="chooseOptions[aKey]"/>
+											<label :for="aKey+'_'+key">{{item}}</label>
+										</div>
+									</li>
+								</ul>
+								<!--复选框-->
+								<ul class="list-unstyled list-inline" v-if="option.type==='checkbox'">
+									<li v-for="(item,key) in option.items">
+										<div class="radio-custom radio-default">
+											<input type="checkbox" :name="aKey" :id="aKey+'_'+key" :value="key"
+													v-model="chooseOptions[aKey]"/>
+											<label :for="aKey+'_'+key">{{item}}</label>
+										</div>
+									</li>
+								</ul>
 							</div>
 						</template>
 						{{control}}
@@ -123,4 +147,18 @@
 
 </div>
 
+<script type="text/html" id="field-parse">
+	<input type="text" class="form-control" :id="field.object_id" name="field.object_id"
+			:placeholder="field.options.placeholder" v-if="field.name==='string'">
+</script>
+
+<script type="text/html" id="attribute-parse">
+	<input type="text" class="form-control" :id="options.object_id" name="field.object_id"
+			:placeholder="field.options.placeholder" v-if="type==='string'">
+</script>
+
+<script src="https://cdn.bootcss.com/Sortable/1.6.0/Sortable.min.js"></script>
+<script src="https://cdn.bootcss.com/Vue.Draggable/2.16.0/vuedraggable.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<script src="/js/examples/forms/wnform-config.js"></script>
 <script src="/js/examples/forms/wnform.js"></script>
