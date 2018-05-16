@@ -66,6 +66,11 @@
 	border-color: rgba(0, 0, 0, 0.3);
 }
 
+#settings .btn-group-sm > .btn {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
 .form-hide {
 	opacity: 0.5;
 }

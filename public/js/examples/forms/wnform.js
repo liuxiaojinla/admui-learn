@@ -63,18 +63,35 @@ const RICH_TEXT_CONTROL = {
 	}
 };
 
+/**
+ * 单选框组
+ * @type {*}
+ */
+const RADIO_GROUP_CONTROL = {
+	props: {
+		value: String,
+		items: Array,
+		name: String
+	},
+	template: '<div class="btn-group btn-group-sm" data-toggle="buttons" role="group">' +
+	'<label class="btn btn-outline btn-primary" v-for="(item,key) in items">' +
+	'<input type="radio" :name="name" :value="key" v-model="value">{{item}}</label>' +
+	'</div>',
+};
+
 const design = new Vue({
 	el: document.getElementById('design'),
 	components: {
 		'field-parse': FIELD_PARSE_CONTROL,
-		'rich-text': RICH_TEXT_CONTROL
+		'rich-text': RICH_TEXT_CONTROL,
+		'radio-group': RADIO_GROUP_CONTROL,
 	},
 	data: () => {
 		const form = {
 			title: '新表单',
 			description: '',
 			fields: [],
-			layoutStyle: 'horizontal'
+			layoutStyle: 'vertical'
 		};
 		return {
 			//表单的配置

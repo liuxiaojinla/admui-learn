@@ -5,15 +5,6 @@
 
 <div class="page animation-fade">
 
-	<div class="page-header">
-		<h1 class="page-title">万能表单</h1>
-		<p class="page-description"></p>
-		<div class="page-header-actions">
-			<a class="btn btn-inverse btn-round" href="http://clippings.github.io/layout-grid/" target="_blank">
-				<i class="icon wb-link" aria-hidden="true"></i> <span class="hidden-xs">官网</span></a>
-		</div>
-	</div>
-
 	<div class="page-content container-fluid" id="design">
 		<div class="row">
 
@@ -41,7 +32,7 @@
 							</a>
 						</li>
 					</ul>
-					<div class="panel-body" :style="{height:(winHeight-263)+'px'}">
+					<div class="panel-body" :style="{height:(winHeight-201)+'px'}">
 						<div class="tab-content">
 							<div class="tab-pane active" id="field-basic" role="tabpanel">
 								<div class="row">
@@ -66,7 +57,7 @@
 			</div>
 
 			<div class="col-md-6">
-				<div class="panel" id="preview" :style="{height:(winHeight-223)+'px'}">
+				<div class="panel" id="preview" :style="{height:(winHeight-161)+'px'}">
 					<div class="panel-heading">
 						<h3 class="panel-title" @click="chooseControl({name:'form',options:form})">{{form.title}}</h3>
 					</div>
@@ -103,7 +94,7 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">配置</h3>
 					</div>
-					<div class="panel-body" :style="{height:(winHeight-274)+'px'}">
+					<div class="panel-body" :style="{height:(winHeight-212)+'px'}">
 						<template v-for="group in getControlOptions(control.name)">
 							<blockquote>{{group.title}}</blockquote>
 							<div class="form-group" v-for="(option,aKey) in group.options"
@@ -128,6 +119,9 @@
 										</div>
 									</li>
 								</ul>
+								<!--单选框组-->
+								<radio-group :name="aKey" v-model="chooseOptions[aKey]" :items="option.items"
+										v-if="option.type==='group'"></radio-group>
 								<!--复选框-->
 								<ul class="list-unstyled list-inline" v-if="option.type==='checkbox'">
 									<li v-for="(item,key) in option.items">
