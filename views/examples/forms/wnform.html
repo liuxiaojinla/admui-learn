@@ -1,5 +1,6 @@
 <title>万能表单</title>
 
+<link rel="stylesheet" href="/vendor/summernote/summernote.css">
 <link rel="stylesheet" href="/css/examples/forms/wnform.css">
 
 <div class="page animation-fade">
@@ -44,7 +45,7 @@
 						<div class="tab-content">
 							<div class="tab-pane active" id="field-basic" role="tabpanel">
 								<div class="row">
-									<button type="button" class="btn btn-primary col-xs-3"
+									<button type="button" class="btn btn-default btn-outline col-xs-3"
 											v-for="(item,name) in fieldsConfig"
 											:key="item.name" @click="addControl(name)"
 											v-if="item.isShow!==false">
@@ -73,7 +74,7 @@
 						<div class="description" v-html="form.description"></div>
 
 						<draggable :list="form.fields" :options="{animation: 200}" class="form-horizontal">
-							<div class="form-group" :class="{selected:control===field}"
+							<div class="form-group" :class="getFormGroupClass(field)"
 									v-for="(field,index) in form.fields"
 									:key="field.object_id" @click="chooseControl(field)">
 								<div class="action">
@@ -82,15 +83,17 @@
 									<button type="button" class="btn btn-pure btn-danger icon wb-trash"
 											@click.capture.stop="removeControl(index)"></button>
 								</div>
-								<label :class="getFieldLabelClass(field)"
-										:for="field.object_id">{{field.options.title}}</label>
+								<label :class="getFieldLabelClass(field)" :for="field.object_id">
+									<span class="text-danger" v-if="field.options.validate">*</span>
+									{{field.options.title}}
+								</label>
 								<div :class="getFieldControlClass(field)">
 									<field-parse :field="field"></field-parse>
 								</div>
 							</div>
 						</draggable>
 
-						{{form}}
+						<!--{{form}}-->
 					</div>
 				</div>
 			</div>
@@ -135,9 +138,12 @@
 										</div>
 									</li>
 								</ul>
+								<!--富文本-->
+								<rich-text v-model="chooseOptions[aKey]" v-if="option.type==='rich-text'"></rich-text>
+
 							</div>
 						</template>
-						{{control}}
+						<!--{{control}}-->
 					</div>
 				</div>
 			</div>
@@ -156,6 +162,9 @@
 	<input type="text" class="form-control" :id="options.object_id" name="field.object_id"
 			:placeholder="field.options.placeholder" v-if="type==='string'">
 </script>
+
+<script src="/vendor/summernote/summernote.min.js" data-name="summernote"></script>
+<script src="/vendor/summernote/lang/summernote-zh-CN.min.js" data-deps="summernote"></script>
 
 <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
 <script src="https://cdn.bootcss.com/Sortable/1.6.0/Sortable.min.js"></script>

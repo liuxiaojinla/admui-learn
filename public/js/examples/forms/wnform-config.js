@@ -132,6 +132,7 @@ control.put('form', {
 		basic: {
 			options: {
 				description: {
+					title: '描述',
 					type: 'rich-text',
 					value: ''
 				}
@@ -157,6 +158,141 @@ control.put('form', {
 //文本框
 control.put('string', {
 	title: '单行文本',
+	icon: 'icon wb-text',
+	options: {
+		basic: {}
+	}
+});
+
+//多行文本
+control.put('text', {
+	title: '多行文本',
+	icon: 'icon wb-text-type',
+	options: {
+		basic: {}
+	}
+});
+
+//数字
+control.put('number', {
+	title: '数字',
+	icon: 'icon wb-format-clear',
+	options: {
+		basic: {}
+	}
+});
+
+//下拉框
+control.put('select', {
+	title: '下拉框',
+	icon: 'icon fa-caret-square-o-down',
+	options: {
+		basic: {}
+	}
+});
+
+//单选框
+control.put('radio', {
+	title: '单选框',
+	icon: 'icon wb-check-circle',
+	options: {
+		basic: {}
+	}
+});
+
+//复选框
+control.put('checkbox', {
+	title: '复选框',
+	icon: 'icon fa-check-square',
+	options: {
+		basic: {}
+	}
+});
+
+//日期
+control.put('datetime', {
+	title: '日期',
+	icon: 'icon wb-calendar',
+	options: {
+		basic: {}
+	}
+});
+
+//时间
+control.put('time', {
+	title: '时间',
+	icon: 'icon wb-time',
+	options: {
+		basic: {}
+	}
+});
+
+//网址
+control.put('url', {
+	title: '网址',
+	icon: 'icon wb-link',
+	options: {
+		basic: {}
+	}
+});
+
+//图文内容
+control.put('rich-text', {
+	title: '图文内容',
+	icon: 'icon wb-order',
+	options: {
+		basic: {}
+	}
+});
+
+//视频
+control.put('video', {
+	title: '视频',
+	icon: 'icon wb-video',
+	options: {
+		basic: {}
+	}
+});
+
+// //分页
+// control.put('paging', {
+// 	title: '分页',
+// 	options: {
+// 		basic: {}
+// 	}
+// });
+
+//评分
+control.put('star', {
+	title: '评分',
+	icon: 'icon wb-star',
+	options: {
+		basic: {}
+	}
+});
+
+//文件上传
+control.put('upload', {
+	title: '文件上传',
+	icon: 'icon wb-upload',
+	options: {
+		basic: {}
+	}
+});
+
+//地址
+control.put('address', {
+	title: '地址',
+	icon: 'icon wb-home',
+	options: {
+		basic: {}
+	}
+});
+
+//位置
+control.put('location', {
+	title: '位置',
+	icon: 'icon wb-map',
 	options: {
 		basic: {}
 	}

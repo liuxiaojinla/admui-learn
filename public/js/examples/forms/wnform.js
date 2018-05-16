@@ -20,17 +20,54 @@ function createObjectId(prefix = '') {
 	return prefix + k1 + k2 + k3;
 }
 
+/**
+ * 字段解析组件
+ * @type {*}
+ */
 const FIELD_PARSE_CONTROL = {
 	props: {field: Object},
 	template: document.getElementById('field-parse').innerHTML,
 	data: () => ({}),
 	methods: {}
 };
-console.log(window)
+
+/**
+ * 富文本组件
+ * @type {*}
+ */
+const RICH_TEXT_CONTROL = {
+	props: {
+		value: String
+	},
+	template: '<textarea class="form-control"></textarea>',
+	mounted() {
+		const jqEl = $(this.$el);
+		jqEl.summernote({
+			tabsize: 2,
+			height: 300,
+		});
+		this.value && jqEl.code(this.value);
+		jqEl.on('summernote.blur', () => {
+			this.$emit('input', jqEl.code());
+		});
+		// jqEl.on('summernote.change', (e) => {
+		// 	console.log(jqEl.summernote('code'));
+		// });
+		// jqEl.on('summernote.image.upload', function(we, files) {
+		// 	// upload image to server and create imgNode...
+		// 	jqEl.summernote('insertNode', imgNode);
+		// });
+	},
+	destroyed() {
+		$(this.$el).summernote('destroy');
+	}
+};
+
 const design = new Vue({
 	el: document.getElementById('design'),
 	components: {
 		'field-parse': FIELD_PARSE_CONTROL,
+		'rich-text': RICH_TEXT_CONTROL
 	},
 	data: () => {
 		const form = {
@@ -122,15 +159,22 @@ const design = new Vue({
 			return !attribute.isShow || attribute.isShow(this.control.options) !== false;
 		},
 		//获取组件标签css class列表
-		getFieldLabelClass(field) {
+		getFieldLabelClass(control) {
 			return ['control-label', {
 				'col-sm-2': this.form.layoutStyle === 'horizontal'
 			}];
 		},
 		//获取组件标签css class列表
-		getFieldControlClass(field) {
-			const col = 'col-sm-' + field.options.inputWidth;
+		getFieldControlClass(control) {
+			const col = 'col-sm-' + control.options.inputWidth;
 			return [{[col]: this.form.layoutStyle === 'horizontal'}];
+		},
+		//获取FormGroup css class列表
+		getFormGroupClass(control) {
+			return {
+				'selected': this.control === control,
+				'form-hide': control.options.isHide
+			};
 		}
 	}
 });

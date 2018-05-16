@@ -12,13 +12,19 @@
 	cursor: pointer;
 }
 
-#design input {
+#design input, #design textarea {
 	background-color: transparent;
 	border-color: #c9cbcf;
 }
 
 #preview, #control, #settings {
 	margin-bottom: 0;
+}
+
+#control .tab-pane .btn {
+	padding-left: 4px;
+	padding-right: 4px;
+	border-radius: 0;
 }
 
 #preview, #control .panel-body, #settings .panel-body {
@@ -58,4 +64,32 @@
 	line-height: 1.6;
 	background-color: rgba(0, 0, 0, 0.1);
 	border-color: rgba(0, 0, 0, 0.3);
+}
+
+.form-hide {
+	opacity: 0.5;
+}
+
+.note-editable {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-track-piece {
+	background-color: #eee;
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #ddd;
+	background-clip: padding-box;
+	min-height: 28px;
+	border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #ccc;
 }
