@@ -12,7 +12,9 @@
 	cursor: pointer;
 }
 
-#design input, #design textarea {
+#design input,
+#design select,
+#design textarea {
 	background-color: transparent;
 	border-color: #c9cbcf;
 }

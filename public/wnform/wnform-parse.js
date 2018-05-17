@@ -10,7 +10,7 @@ function random(min, max) {
 
 /**
  * 创建唯一id
- * @param prefix
+ * @param {string} [prefix]
  * @return {string}
  */
 function createObjectId(prefix = '') {
@@ -20,72 +20,8 @@ function createObjectId(prefix = '') {
 	return prefix + k1 + k2 + k3;
 }
 
-/**
- * 字段解析组件
- * @type {*}
- */
-const FIELD_PARSE_CONTROL = {
-	props: {field: Object},
-	template: document.getElementById('field-parse').innerHTML,
-	data: () => ({}),
-	methods: {}
-};
-
-/**
- * 富文本组件
- * @type {*}
- */
-const RICH_TEXT_CONTROL = {
-	props: {
-		value: String
-	},
-	template: '<textarea class="form-control"></textarea>',
-	mounted() {
-		const jqEl = $(this.$el);
-		jqEl.summernote({
-			tabsize: 2,
-			height: 300,
-		});
-		this.value && jqEl.code(this.value);
-		jqEl.on('summernote.blur', () => {
-			this.$emit('input', jqEl.code());
-		});
-		// jqEl.on('summernote.change', (e) => {
-		// 	console.log(jqEl.summernote('code'));
-		// });
-		// jqEl.on('summernote.image.upload', function(we, files) {
-		// 	// upload image to server and create imgNode...
-		// 	jqEl.summernote('insertNode', imgNode);
-		// });
-	},
-	destroyed() {
-		$(this.$el).summernote('destroy');
-	}
-};
-
-/**
- * 单选框组
- * @type {*}
- */
-const RADIO_GROUP_CONTROL = {
-	props: {
-		value: String,
-		items: Array,
-		name: String
-	},
-	template: '<div class="btn-group btn-group-sm" data-toggle="buttons" role="group">' +
-	'<label class="btn btn-outline btn-primary" v-for="(item,key) in items">' +
-	'<input type="radio" :name="name" :value="key" v-model="value">{{item}}</label>' +
-	'</div>',
-};
-
 const design = new Vue({
 	el: document.getElementById('design'),
-	components: {
-		'field-parse': FIELD_PARSE_CONTROL,
-		'rich-text': RICH_TEXT_CONTROL,
-		'radio-group': RADIO_GROUP_CONTROL,
-	},
 	data: () => {
 		const form = {
 			title: '新表单',

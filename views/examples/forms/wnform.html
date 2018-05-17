@@ -1,7 +1,7 @@
 <title>万能表单</title>
 
 <link rel="stylesheet" href="/vendor/summernote/summernote.css">
-<link rel="stylesheet" href="/css/examples/forms/wnform.css">
+<link rel="stylesheet" href="/wnform/wnform.css">
 
 <div class="page animation-fade">
 
@@ -63,8 +63,8 @@
 					</div>
 					<div class="panel-body">
 						<div class="description" v-html="form.description"></div>
-
-						<draggable :list="form.fields" :options="{animation: 200}" class="form-horizontal">
+						<draggable :list="form.fields" :options="{animation: 200,handle:'.wb-move'}"
+								class="form-horizontal">
 							<div class="form-group" :class="getFormGroupClass(field)"
 									v-for="(field,index) in form.fields"
 									:key="field.object_id" @click="chooseControl(field)">
@@ -73,6 +73,7 @@
 											@click.capture.stop="copyControl(field)"></button>
 									<button type="button" class="btn btn-pure btn-danger icon wb-trash"
 											@click.capture.stop="removeControl(index)"></button>
+									<button type="button" class="btn btn-pure btn-primary icon wb-move"></button>
 								</div>
 								<label :class="getFieldLabelClass(field)" :for="field.object_id">
 									<span class="text-danger" v-if="field.options.validate">*</span>
@@ -83,7 +84,6 @@
 								</div>
 							</div>
 						</draggable>
-
 						<!--{{form}}-->
 					</div>
 				</div>
@@ -100,44 +100,11 @@
 							<div class="form-group" v-for="(option,aKey) in group.options"
 									v-if="isShowAttribute(option)">
 								<label class="control-label" :for="aKey">{{option.title}}</label>
-
-								<!--文本框-->
-								<input type="text" class="form-control" :id="aKey" v-model="chooseOptions[aKey]"
-										v-if="option.type==='string'">
-								<!--开关-->
-								<div class="checkbox-custom checkbox-default" v-if="option.type==='switch'">
-									<input type="checkbox" :id="aKey" v-model="chooseOptions[aKey]"/>
-									<label :for="aKey">开启</label>
-								</div>
-								<!--单选框-->
-								<ul class="list-unstyled list-inline" v-if="option.type==='radio'">
-									<li v-for="(item,key) in option.items">
-										<div class="radio-custom radio-default">
-											<input type="radio" :name="aKey" :id="aKey+'_'+key" :value="key"
-													v-model="chooseOptions[aKey]"/>
-											<label :for="aKey+'_'+key">{{item}}</label>
-										</div>
-									</li>
-								</ul>
-								<!--单选框组-->
-								<radio-group :name="aKey" v-model="chooseOptions[aKey]" :items="option.items"
-										v-if="option.type==='group'"></radio-group>
-								<!--复选框-->
-								<ul class="list-unstyled list-inline" v-if="option.type==='checkbox'">
-									<li v-for="(item,key) in option.items">
-										<div class="radio-custom radio-default">
-											<input type="checkbox" :name="aKey" :id="aKey+'_'+key" :value="key"
-													v-model="chooseOptions[aKey]"/>
-											<label :for="aKey+'_'+key">{{item}}</label>
-										</div>
-									</li>
-								</ul>
-								<!--富文本-->
-								<rich-text v-model="chooseOptions[aKey]" v-if="option.type==='rich-text'"></rich-text>
-
+								<attribute-parse :name="aKey" :field="option"
+										v-model="chooseOptions[aKey]"></attribute-parse>
 							</div>
 						</template>
-						<!--{{control}}-->
+						{{control}}
 					</div>
 				</div>
 			</div>
@@ -147,14 +114,83 @@
 
 </div>
 
-<script type="text/html" id="field-parse">
-	<input type="text" class="form-control" :id="field.object_id" name="field.object_id"
-			:placeholder="field.options.placeholder" v-if="field.name==='string'">
+
+<!-- 字段解析 组件 -->
+<script type="text/html" id="tpl-field-parse">
+	<input type="text" class="form-control" :id="field.object_id" :name="field.object_id"
+			:placeholder="field.options.placeholder" :minlength="field.options.minLength"
+			:maxlength="field.options.maxLength" v-if="field.name==='string'">
+	<input type="number" class="form-control" :id="field.object_id" :name="field.object_id"
+			:placeholder="field.options.placeholder" :min="field.options.min" :max="field.options.max"
+			:step="field.options.step||1" v-else-if="field.name==='number'"/>
+	<textarea type="text" class="form-control" :id="field.object_id" :name="field.object_id"
+			:placeholder="field.options.placeholder" :minlength="field.options.minLength"
+			:maxlength="field.options.maxLength" :rows="field.options.rows" :cols="field.options.cols"
+			v-else-if="field.name==='text'"></textarea>
+	<select class="form-control" v-else-if="field.name==='select'">
+		<option v-for="(item,key) in field.items" :value="key">{{item}}</option>
+	</select>
+	<input type="date" class="form-control" :id="field.object_id" :name="field.object_id"
+			:placeholder="field.options.placeholder" :min="field.options.min" :max="field.options.max"
+			:step="field.options.step||1" v-else-if="field.name==='date'"/>
+	<input type="time" class="form-control" :id="field.object_id" :name="field.object_id"
+			:placeholder="field.options.placeholder" :min="field.options.min" :max="field.options.max"
+			:step="field.options.step||1" v-else-if="field.name==='time'"/>
+	<input type="url" class="form-control" :id="field.object_id" :name="field.object_id"
+			:placeholder="field.options.placeholder" v-else-if="field.name==='url'"/>
 </script>
 
-<script type="text/html" id="attribute-parse">
-	<input type="text" class="form-control" :id="options.object_id" name="field.object_id"
-			:placeholder="field.options.placeholder" v-if="type==='string'">
+<!-- 属性解析 组件 -->
+<script type="text/html" id="tpl-attribute-parse">
+	<input type="text" class="form-control" :id="name" :name="name" :placeholder="field.placeholder" v-model="data"
+			:minlength="field.minLength" :maxlength="field.maxLength" v-if="field.type==='string'"/>
+	<input type="number" class="form-control" :id="name" :name="name" :placeholder="field.placeholder" v-model="data"
+			:min="field.min" :max="field.max" :step="field.step||1" v-else-if="field.type==='number'"/>
+	<input type="email" class="form-control" :id="name" :name="name" :placeholder="field.placeholder" v-model="data"
+			v-else-if="field.type==='email'"/>
+	<input type="date" class="form-control" :id="name" :name="name" :placeholder="field.placeholder" v-model="data"
+			:min="field.min" :max="field.max" v-else-if="field.type==='date'"/>
+	<input type="time" class="form-control" :id="name" :name="name" :placeholder="field.placeholder" v-model="data"
+			:min="field.min" :max="field.max" v-else-if="field.type==='time'"/>
+	<input type="datetime-local" class="form-control" :id="name" :name="name" :placeholder="field.placeholder"
+			:min="field.min" :max="field.max" v-model="data" v-else-if="field.type==='datetime'"/>
+	<input type="url" class="form-control" :id="name" :name="name" :placeholder="field.placeholder" v-model="data"
+			v-else-if="field.type==='url'"/>
+	<textarea type="text" class="form-control" :id="name" :name="name" :placeholder="field.placeholder" v-model="data"
+			:minlength="field.minLength" :maxlength="field.maxLength" v-else-if="field.type==='text'"></textarea>
+	<rich-text :placeholder="field.placeholder" v-model="data" v-else-if="field.type==='rich-text'"></rich-text>
+	<div v-else-if="field.type==='button-group'">
+		<button-group :name="name" v-model="data" :items="field.items"></button-group>
+	</div>
+	<div class="checkbox-custom checkbox-default" v-else-if="field.type==='switch'">
+		<input type="checkbox" :id="name" v-model="data"/>
+		<label :for="name">开启</label>
+	</div>
+	<ul class="list-unstyled list-inline" v-else-if="field.type==='radio'">
+		<li v-for="(item,key) in field.items">
+			<div class="radio-custom radio-default">
+				<input type="radio" :name="name" :id="name+'_'+key" :value="key" v-model="data"/>
+				<label :for="name+'_'+key">{{item}}</label>
+			</div>
+		</li>
+	</ul>
+	<ul class="list-unstyled list-inline" v-else-if="field.type==='checkbox'">
+		<li v-for="(item,key) in field.items">
+			<div class="radio-custom radio-default">
+				<input type="checkbox" :name="name" :id="name+'_'+key" :value="key" v-model="data"/>
+				<label :for="name+'_'+key">{{item}}</label>
+			</div>
+		</li>
+	</ul>
+</script>
+
+<!-- button-group 组件 -->
+<script type="text/html" id="tpl-button-group">
+	<div class="btn-group btn-group-sm" role="group">
+		<label class="btn btn-outline btn-primary" :class="{'active':key==data}" v-for="(item,key) in items">
+			<input type="radio" :name="name" :value="key" v-model="data" class="hidden"/>{{item}}
+		</label>
+	</div>
 </script>
 
 <script src="/vendor/summernote/summernote.min.js" data-name="summernote"></script>
@@ -164,5 +200,6 @@
 <script src="https://cdn.bootcss.com/Sortable/1.6.0/Sortable.min.js"></script>
 <script src="https://cdn.bootcss.com/Vue.Draggable/2.16.0/vuedraggable.js"></script>
 
-<script src="/js/examples/forms/wnform-config.js"></script>
-<script src="/js/examples/forms/wnform.js"></script>
+<script src="/wnform/wnform-config.js"></script>
+<script src="/wnform/wnform-controls.js"></script>
+<script src="/wnform/wnform-parse.js"></script>

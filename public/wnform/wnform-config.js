@@ -47,7 +47,7 @@ window.control = (function () {
 				options: {
 					inputWidth: {
 						title: '输入框宽度',
-						type: 'group',
+						type: 'button-group',
 						items: {
 							'1': '10',
 							'2': '20',
@@ -166,7 +166,20 @@ control.put('string', {
 	title: '单行文本',
 	icon: 'icon wb-text',
 	options: {
-		basic: {}
+		fill: {
+			options: {
+				minLength: {
+					title: '最小输入字数',
+					type: 'number',
+					value: ''
+				},
+				maxLength: {
+					title: '最大输入字数',
+					type: 'number',
+					value: ''
+				}
+			}
+		}
 	}
 });
 
@@ -175,7 +188,34 @@ control.put('text', {
 	title: '多行文本',
 	icon: 'icon wb-text-type',
 	options: {
-		basic: {}
+		fill: {
+			options: {
+				minLength: {
+					title: '最小输入字数',
+					type: 'number',
+					value: ''
+				},
+				maxLength: {
+					title: '最大输入字数',
+					type: 'number',
+					value: ''
+				}
+			}
+		},
+		layout: {
+			options: {
+				rows: {
+					title: '行数',
+					type: 'radio',
+					value: '3',
+					items: {
+						'2': '2',
+						'3': '3',
+						'4': '4',
+					}
+				},
+			}
+		}
 	}
 });
 
@@ -184,7 +224,25 @@ control.put('number', {
 	title: '数字',
 	icon: 'icon wb-format-clear',
 	options: {
-		basic: {}
+		fill: {
+			options: {
+				min: {
+					title: '最小值',
+					type: 'number',
+					value: ''
+				},
+				max: {
+					title: '最大值',
+					type: 'number',
+					value: ''
+				},
+				step: {
+					title: '步长',
+					type: 'number',
+					value: '1'
+				}
+			}
+		}
 	}
 });
 
@@ -216,7 +274,7 @@ control.put('checkbox', {
 });
 
 //日期
-control.put('datetime', {
+control.put('date', {
 	title: '日期',
 	icon: 'icon wb-calendar',
 	options: {
